@@ -16,8 +16,14 @@ export default class Donor extends BaseEntity{
     @Column()
     password!: string;
 
+    @Column({
+        type: 'enum',
+        enum: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
+    })
+    bloodGroup!: 'A+' | 'A-' | 'B+' | 'B-' | 'AB+' | 'AB-' | 'O+' | 'O-';
+
     @Column()
-    bloodGroup!: string;
+    lastDonation!: Date;
 
     @Column()
     phone!: string;
@@ -27,6 +33,9 @@ export default class Donor extends BaseEntity{
 
     @Column()
     city!: string;
+
+    @Column()
+    isActive!: boolean;
 
     @CreateDateColumn()
     createdAt!: Date;
