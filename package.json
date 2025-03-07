@@ -15,6 +15,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "pg": "^8.13.3",
+    "together-ai": "^0.13.0",
     "typeorm": "^0.3.21"
   },
   "devDependencies": {
