@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import DonorService from './donor.service';
-import { CreateDonorDTOSchema } from './donor.dto';
+import { CreateDonorDTOSchema, LoginDonorDTOSchema } from './donor.dto';
 
 export default class DonorController {
     static async getAllDonors(req: Request, res: Response, next: NextFunction) {
@@ -26,6 +26,26 @@ export default class DonorController {
             const validatedBody = CreateDonorDTOSchema.parse(req.body);
             const newDonor = await DonorService.createDonor(validatedBody);
             res.status(201).json(newDonor);
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    static async loginDonor(req: Request, res: Response, next: NextFunction) {
+        try {
+            const validatedBody = LoginDonorDTOSchema.parse(req.body);
+            const token = await DonorService.loginDonor(validatedBody);
+            res.status(200).json({ token });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    static async deleteAccount(req: Request, res: Response, next: NextFunction) {
+        try {
+            const donorId = req.user.id;
+            await DonorService.deleteDonor(donorId);
+            res.status(200).json({ message: 'Donor account deleted successfully' });
         } catch (error) {
             next(error);
         }

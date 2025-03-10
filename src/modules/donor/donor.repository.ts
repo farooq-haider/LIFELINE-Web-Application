@@ -40,4 +40,9 @@ export default class DonorRepository {
         const newDonor = await this.donorRepository.save(donor);
         return this.mapToDTO(newDonor);
     }
+
+    static async deleteById(id: number): Promise<boolean> {
+        const deleted = await this.donorRepository.softDelete(id);
+        return deleted.affected !== 0;
+    }
 }

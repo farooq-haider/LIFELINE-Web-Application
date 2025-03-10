@@ -11,7 +11,8 @@ const config = {
     },
     togetherAI: {
         apiKey: process.env.TOGETHER_API_KEY
-    }
+    },
+    JWT_SECRET: process.env.JWT_SECRET as string
 }
 
 export default config;
