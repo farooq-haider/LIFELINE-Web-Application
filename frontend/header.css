@@ -1,0 +1,68 @@
+.header {
+    background-color: #e5e5e5;
+    border-radius: 12px;
+    padding: 15px 30px;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e255e;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1e255e;
+    font-weight: 500;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Optional icon styling (if using icon fonts like Font Awesome) */
+.nav-links a i {
+    font-size: 18px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 500;
+}
