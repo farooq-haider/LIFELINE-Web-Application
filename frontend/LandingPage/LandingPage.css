@@ -1,0 +1,359 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #1a1a1a;
+}
+/* --- Header/Navbar --- */
+.header {
+    background-color: #e5e5e5;
+    border-radius: 12px;
+    padding: 15px 30px;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e255e;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1e255e;
+    font-weight: 500;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Optional icon styling (if using icon fonts like Font Awesome) */
+.nav-links a i {
+    font-size: 18px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eb3c3c;
+    border-radius: 30px;
+    padding: 35px 40px;
+    margin: 30px 20px;
+    position: relative;
+    flex-wrap: wrap;
+    color: white;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.hero-left {
+    flex: 1;
+    max-width: 500px;
+}
+
+.hero h1 {
+    font-size: 8rem;
+    font-weight: 900;
+    color: #c0e6f7;
+    margin-bottom: -5px;
+}
+
+.hero-icons {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.hero-icons div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgb(255, 154, 154);
+    border-radius: 50px;
+    padding: 8px 14px;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.hero-icons div img {
+    width: 20px;
+    height: 20px;
+}
+
+.hero p.subtext {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: white;
+    margin-top: 20px;
+    max-width: 400px;
+}
+
+.hero .info-btn {
+    margin-top: 20px;
+    background: #f4b6c2;
+    color: black;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero .info-btn:hover {
+    background: #f19dad;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    position: relative;
+    height: 100%; /* Helps position the image relative to this container */
+}
+
+.hero-image img {
+    margin-left:40px;
+    height: 900px; /* You can tweak this */
+    object-fit: contain;
+    position: absolute;
+    bottom: -235px; /* Overlaps the red container's bottom */
+    transform: scale(1.2);
+}
+
+.tagline {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.subtext {
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.info-btn {
+    padding: 10px 20px;
+    border: none;
+    background: white;
+    color: #e53935;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hero-image img {
+    max-width: 250px;
+    height: auto;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0px 20px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    flex: 1 1 200px;
+    max-width: 335px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card h3 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.feature-card img {
+    width: 150px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Color backgrounds */
+.green { background-color: #d1f4f9; }
+.yellow { background-color: #fef08a; }
+.pink { background-color: #fbcfe8; }
+.blue { background-color: #c7d2fe; }
+
+
+.card {
+    flex: 1 1 200px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    color: #1a1a1a;
+    text-align: center;
+    min-width: 150px;
+}
+
+.green { background: #a5f3fc; }
+.yellow { background: #fde68a; }
+.pink { background: #fbcfe8; }
+.blue { background: #bfdbfe; }
+
+.info-heading {
+    text-align: center;
+    padding: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+.extras {
+    justify-content: center;
+    display: flex;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    padding: 40px 20px;
+}
+
+.extra-card {
+    width: 40%;
+    padding: 20px;
+    border-radius: 20px;
+    color: #1a1a1a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 12px;
+
+    display: flex;
+    flex-direction: column;
+    
+    text-align: center;
+}
+
+.extra-card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.extra-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.extra-card p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.extra-card .label {
+    width: auto;
+    text-align:center !important;
+    background: white;
+    padding: 5px 10px;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Layout sizes */
+.wide {
+    grid-column: 1 / 2;
+}
+
+.small {
+    grid-column: 2 / 3;
+}
+
+/* Background colors */
+.yellow {
+    background-color: #fde68a;
+}
+
+.orange {
+    background-color: #ffead1;
+}
+
+.darkblue {
+    background-color: #1e3a8a;
+    color: white;
+}
+
+.green {
+    background-color: #d1fae5;
+}
+
+.pink {
+    background-color: #fce7f3;
+}
+
+
