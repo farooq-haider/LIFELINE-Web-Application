@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm";
 import Donor from "../modules/donor/donor.entity";
-import DonationHistory from "../modules/donations_history/donations_history.entity";
+import DonationHistory from "../modules/donationHistory/donationHistory.entity";
 import config from "./config";
 
 const AppDataSource = new DataSource({
@@ -11,6 +11,7 @@ const AppDataSource = new DataSource({
   password: config.db.password,
   database: config.db.database,
   synchronize: true,
+  //dropSchema: true,
   entities: [Donor, DonationHistory],
 });
 

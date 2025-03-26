@@ -18,7 +18,7 @@ export default class DonationHistory extends BaseEntity {
 
   @ManyToOne(() => Donor)
   @JoinColumn({ name: "donor_id" })
-  donor!: Donor;
+  donor_id!: Donor;
 
   @Column()
   description!: string;

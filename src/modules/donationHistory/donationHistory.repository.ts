@@ -3,8 +3,8 @@ import {
   CreateDonationsHistoryDTO,
   DonationsHistoryResponseDTO,
   DonationsHistoryResponseDTOSchema,
-} from "./donations_history.dto";
-import DonationHistory from "./donations_history.entity";
+} from "./donationHistory.dto";
+import DonationHistory from "./donationHistory.entity";
 
 export default class DonationHistoryRepository {
   private static donationHistoryRepository =
@@ -14,16 +14,17 @@ export default class DonationHistoryRepository {
   ): DonationsHistoryResponseDTO {
     return DonationsHistoryResponseDTOSchema.parse({
       id: history.id,
-      donor_id: history.donor,
+      donor_id: history.donor_id,
       description: history.description,
     });
   }
   static async findAll(donor_id: number): Promise<DonationHistory[]> {
     const history = await this.donationHistoryRepository.find({
-      where: { donor: { id: donor_id } },
+      where: { donor_id: { id: donor_id } },
     });
     return history;
   }
+
   static async create(
     history: CreateDonationsHistoryDTO
   ): Promise<DonationsHistoryResponseDTO> {

@@ -1,7 +1,6 @@
 import { z } from "zod";
 
 export const CreateDonationsHistoryDTOSchema = z.object({
-  donor_id: z.number().int().positive(),
   description: z.string(),
 });
 
