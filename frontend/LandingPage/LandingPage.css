@@ -602,7 +602,17 @@ html, body {
     color: white;
 }
 
+#donate-yes-btn{
+    background-color: #ef4444;
+    color: white;
+}
+
 #no-btn {
+    background-color: #fef2f2;
+    color: #1a1a1a;
+}
+
+#domate-no-btn {
     background-color: #fef2f2;
     color: #1a1a1a;
 }
@@ -612,6 +622,14 @@ html, body {
 }
 
 #no-btn:hover {
+    background-color: #fce7e7;
+}
+
+#donate-yes-btn:hover {
+    background-color: #dc2626;
+}
+
+#donate-no-btn:hover {
     background-color: #fce7e7;
 }
 

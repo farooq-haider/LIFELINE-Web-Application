@@ -19,9 +19,17 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// Show popup on 'Request Blood' card click
-document.querySelector(".feature-card.pink").addEventListener("click", () => {
-    document.getElementById("account-popup").classList.remove("hidden");
+// Show the appropriate popup based on which card is clicked
+document.querySelectorAll(".feature-card.pink").forEach(card => {
+    const heading = card.querySelector("h3").textContent.trim();
+
+    card.addEventListener("click", () => {
+        if (heading === "Request Blood") {
+            document.getElementById("account-popup").classList.remove("hidden");
+        } else if (heading === "Donate Blood") {
+            document.getElementById("donate-popup").classList.remove("hidden");
+        }
+    });
 });
 
 // Redirects
@@ -36,6 +44,23 @@ document.getElementById("no-btn").addEventListener("click", () => {
 // Optional: Close popup when clicking outside (optional enhancement)
 document.getElementById("account-popup").addEventListener("click", function (e) {
     if (e.target.id === "account-popup") {
+        this.classList.add("hidden");
+    }
+});
+
+
+// Donate Blood Redirects
+document.getElementById("donate-yes-btn").addEventListener("click", () => {
+    window.location.href = "../Login/Login.html";
+});
+
+document.getElementById("donate-no-btn").addEventListener("click", () => {
+    window.location.href = "../DonorSignUp/DonorSignUp.html";
+});
+
+// Optional: Close popup when clicking outside
+document.getElementById("donate-popup").addEventListener("click", function (e) {
+    if (e.target.id === "donate-popup") {
         this.classList.add("hidden");
     }
 });
