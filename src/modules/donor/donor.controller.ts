@@ -24,8 +24,8 @@ export default class DonorController {
     static async createDonor(req: Request, res: Response, next: NextFunction) {
         try {
             const validatedBody = CreateDonorDTOSchema.parse(req.body);
-            const newDonor = await DonorService.createDonor(validatedBody);
-            res.status(201).json(newDonor);
+            const token = await DonorService.createDonor(validatedBody);
+            res.status(201).json({userSecret: token});
         } catch (error) {
             next(error);
         }
@@ -35,7 +35,7 @@ export default class DonorController {
         try {
             const validatedBody = LoginDonorDTOSchema.parse(req.body);
             const token = await DonorService.loginDonor(validatedBody);
-            res.status(200).json({ token });
+            res.status(200).json({ userSecret: token });
         } catch (error) {
             next(error);
         }
