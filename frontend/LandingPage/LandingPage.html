@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>LIFELINE - Landing Page</title>
+    <link rel="stylesheet" href="../header.css" />
+    <link rel="stylesheet" href="LandingPage.css" />
+    <link rel="stylesheet" href="../footer.css" />
+</head>
+<body>    
+
+    <div id="header-container"></div>
+    
+
+    <section class="hero">
+        <div class="hero-left">
+            <h1>Lifeline</h1>
+    
+            <div class="hero-icons">
+                <div>
+                    <img src="../assets/heartbeat.png" alt="Heartbeat Icon">
+                    <span>Save Lives</span>
+                </div>
+                <div>
+                    <img src="../assets/location.png" alt="Location Icon">
+                    <span>Find Donors In Minutes</span>
+                </div>
+            </div>
+    
+            <p>If you are a regular blood donor and want yourself to be visible to people in need, you're in the right place.
+            </p>
+    
+            <button class="info-btn">
+                What Is Lifeline?
+                <span>&rarr;</span>
+            </button>
+        </div>
+    
+        <div class="hero-image">
+            <img src="../assets/doctor.png" alt="Doctor Image">
+        </div>
+        
+    </section>
+
+    <section class="features">
+        <div class="feature-card pink">
+            <h3>Request Blood</h3>
+            <p>Connect With Donors Within Minutes</p>
+            <img src="../assets/request-blood.png" alt="Blood Bag Icon">
+        </div>
+        <div class="feature-card pink">
+            <h3>Donate Blood</h3>
+            <p>Become Visible To People In Need of Blood</p>
+            <img src="../assets/become-a-donor.png" alt="Arm Donation Icon">
+        </div>
+        <div class="feature-card green">
+            <h3>Our Moto</h3>
+            <p>Smooth Blood Donation All Across Pakistan</p>
+            <img src="../assets/our-moto.png" alt="Recycle Icon">
+        </div>
+        <div class="feature-card blue">
+            <h3>Know The Team</h3>
+            <p>Get to Know the Team of Developers Behind Lifeline.</p>
+            <img src="../assets/know-the-team.png" alt="Team Icon">
+        </div>
+    </section>
+    
+
+    <section class="info-heading">
+        <h2>Lifeline Offers Much More Than Just Connecting Donors With Patients</h2>
+    </section>
+
+    <section class="extras">
+
+        <div class="extra-card wide grey">
+            <span class="extra-card label">Artificial Intelligence</span>
+            <p>We make use of AI to detect if a donor is physically fit to donate and recommend how much time of waiting is required before next donation.</p>
+        </div>
+
+        <div class="extra-card wide grey">
+            <span class="extra-card label">Artificial Intelligence</span>
+            <p>We offer an AI Chat Bot trained to answer any questions a user may have while using LifeLine.</p>
+        </div>
+
+        <div class="extra-card wide grey">
+            <span class="extra-card label">Donor Verification System</span>
+            <p>Verified Donors are issued a verification tag, showcasing their credibility on the platform aiming to enhance the overall experience for blood recipients. </p>
+        </div>
+
+        <div class="extra-card wide grey">
+            <span class="extra-card label">Secure & Safe User Experience </span>
+            <p>Administrators keep monitoring site usage and promptly handle any complaints that are submitted by the users through the platform.</p>
+        </div>
+    </section>
+
+    <!--Recipient Registeration bases segregation-->
+    <div id="account-popup" class="custom-popup hidden">
+        <div class="popup-content">
+            <h2>Do you have an account?</h2>
+            <p>Log In if you already have an account, or Sign Up to create one.</p>
+            <div class="popup-buttons">
+                <button id="yes-btn">Log In</button>
+                <button id="no-btn">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Donor Registeration bases segregation-->
+    <div id="donate-popup" class="custom-popup hidden">
+        <div class="popup-content">
+            <h2>Do you have an account?</h2>
+            <p>Log In if you're already registered, or Sign Up to become a donor.</p>
+            <div class="popup-buttons">
+                <button id="donate-yes-btn">Log In</button>
+                <button id="donate-no-btn">Sign Up</button>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    
+    <div id="footer-container"></div>
+    
+
+    <script src="LandingPage.js"></script>
+    <script src="../header.js"></script>
+</body>
+</html>

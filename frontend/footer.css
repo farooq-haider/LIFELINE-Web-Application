@@ -1,0 +1,169 @@
+.footer {
+    background-color: #060411;
+    color: #ccc;
+    padding: 60px 30px 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.cta-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.cta-text h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.cta-text p {
+    color: #aaa;
+    font-size: 14px;
+    max-width: 500px;
+}
+
+.cta-button {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+    background: white;
+    color: #161928;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.footer-section h3 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #999;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+    color: white;
+}
+
+.footer-logo {
+    width: 100px;
+    transform: scale(2.0);
+    margin-bottom: 25px;
+    margin-left: 25px;
+}
+
+.logo-contact p {
+    font-size: 13px;
+    color: #aaa;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    border-top: 1px solid #333;
+    padding-top: 15px;
+}
+
+
+@media (max-width: 768px) {
+    .cta-box {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        gap: 20px;
+    }
+
+    .cta-text h2 {
+        font-size: 20px;
+    }
+
+    .cta-text p {
+        font-size: 13px;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-section {
+        width: 100%;
+    }
+
+    .footer-logo {
+        transform: scale(1.2);
+        margin-left: 0;
+    }
+
+    .footer-section h3 {
+        font-size: 16px;
+    }
+
+    .footer-section ul li a {
+        font-size: 15px;
+    }
+
+    .logo-contact p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-text h2 {
+        font-size: 18px;
+    }
+
+    .cta-button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .footer-bottom {
+        font-size: 12px;
+    }
+
+    .footer-logo {
+        width: 80px;
+        transform: scale(1);
+    }
+}
+
