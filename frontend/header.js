@@ -20,7 +20,7 @@ loginLink.addEventListener('click', (e) => {
   e.preventDefault();
   window.location.href = '../Login/Login.html';
 });
-ss
+
   
   document.getElementById('recipient-card').addEventListener('click', () => {
     window.location.href = '../RecipientSignUp/RecipientSignUp.html';
