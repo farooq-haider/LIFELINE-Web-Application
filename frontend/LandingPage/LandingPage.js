@@ -64,3 +64,22 @@ document.getElementById("donate-popup").addEventListener("click", function (e) {
         this.classList.add("hidden");
     }
 });
+
+
+// Animate extra cards when they come into view
+const extraCards = document.querySelectorAll(".extra-card");
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+            observer.unobserve(entry.target); // animate only once
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+extraCards.forEach(card => {
+    observer.observe(card);
+});
