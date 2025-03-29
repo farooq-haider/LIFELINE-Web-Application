@@ -100,3 +100,65 @@
         display: block;
     }
 }
+
+
+.custom-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .popup-content.role-popup-content {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.75);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .role-cards {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .role-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 20px;
+    width: 155px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+  }
+  
+  .role-card:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+  }
+  
+  .role-card img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .hidden {
+    display: none;
+  }
