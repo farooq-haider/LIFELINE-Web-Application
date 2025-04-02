@@ -1,48 +1,54 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, CreateDateColumn,
-    UpdateDateColumn, DeleteDateColumn
-} from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  BaseEntity,
+  CreateDateColumn,
+  UpdateDateColumn,
+  DeleteDateColumn,
+} from "typeorm";
 
 @Entity()
-export default class Donor extends BaseEntity{
-    @PrimaryGeneratedColumn()
-    id!: number;
+export default class Donor extends BaseEntity {
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column()
-    name!: string;
+  @Column()
+  name!: string;
 
-    @Column({ unique: true })
-    email!: string;
+  @Column({ unique: true })
+  email!: string;
 
-    @Column()
-    password!: string;
+  @Column()
+  password!: string;
 
-    @Column({
-        type: 'enum',
-        enum: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
-    })
-    bloodGroup!: 'A+' | 'A-' | 'B+' | 'B-' | 'AB+' | 'AB-' | 'O+' | 'O-';
+  @Column({
+    type: "enum",
+    enum: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
+  })
+  bloodGroup!: "A+" | "A-" | "B+" | "B-" | "AB+" | "AB-" | "O+" | "O-";
 
-    @Column()
-    lastDonation!: Date;
+  @Column()
+  lastDonation!: Date;
 
-    @Column()
-    phone!: string;
+  @Column()
+  phone!: string;
 
-    @Column()
-    address!: string;
+  @Column()
+  address!: string;
 
-    @Column()
-    city!: string;
+  @Column()
+  city!: string;
 
-    @Column()
-    isActive!: boolean;
+  @Column()
+  isActive!: boolean;
 
-    @CreateDateColumn()
-    createdAt!: Date;
+  @CreateDateColumn()
+  createdAt!: Date;
 
-    @UpdateDateColumn()
-    updatedAt!: Date;
+  @UpdateDateColumn()
+  updatedAt!: Date;
 
-    @DeleteDateColumn()
-    deletedAt?: Date;
+  @DeleteDateColumn()
+  deletedAt?: Date;
 }
