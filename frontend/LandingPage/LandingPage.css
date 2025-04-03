@@ -152,7 +152,7 @@ html, body {
     border-radius: 20px;
     padding: 20px;
     text-align: center;
-    color: #1a1a1a;
+    color: #c7d2fe;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -282,7 +282,7 @@ html, body {
 }
 
 .pink {
-    background: linear-gradient(136deg, #b3b3b3, #737373);
+    background: linear-gradient(136deg, #1e255e, #464f9c);
 }
 
 .red-orange {
