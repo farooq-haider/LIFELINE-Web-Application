@@ -6,12 +6,10 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
-  OneToMany,
 } from "typeorm";
-import DonationHistory from "../donationHistory/donationHistory.entity";
 
 @Entity()
-export default class Donor extends BaseEntity {
+export default class Recipient extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
@@ -24,15 +22,6 @@ export default class Donor extends BaseEntity {
   @Column()
   password!: string;
 
-  @Column({
-    type: "enum",
-    enum: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
-  })
-  bloodGroup!: "A+" | "A-" | "B+" | "B-" | "AB+" | "AB-" | "O+" | "O-";
-
-  @Column()
-  lastDonation!: Date;
-
   @Column()
   phone!: string;
 
@@ -42,9 +31,6 @@ export default class Donor extends BaseEntity {
   @Column()
   city!: string;
 
-  @Column()
-  isActive!: boolean;
-
   @CreateDateColumn()
   createdAt!: Date;
 
@@ -53,7 +39,4 @@ export default class Donor extends BaseEntity {
 
   @DeleteDateColumn()
   deletedAt?: Date;
-
-  @OneToMany(() => DonationHistory, (history) => history.donor_id)
-  donationHistory!: DonationHistory[];
 }
