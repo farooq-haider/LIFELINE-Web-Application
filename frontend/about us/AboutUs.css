@@ -6,7 +6,7 @@ body {
   padding: 0;
 }
 
-/* ABOUT US HERO */
+/* HERO SECTION */
 .about-hero {
   background: linear-gradient(135deg, #1e255e, #464f9c);
   padding: 60px 30px;
@@ -14,13 +14,17 @@ body {
   border-radius: 30px;
   color: white;
   display: flex;
-  justify-content: center;
-  text-align: left;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
 }
 
-.about-hero .hero-left {
-  max-width: 800px;
+.hero-left {
+  flex: 1;
+  min-width: 320px;
+  max-width: 700px;
 }
 
 .about-title {
@@ -59,6 +63,21 @@ body {
   height: 24px;
 }
 
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.hero-image img {
+  max-width: 380px;
+  height: auto;
+  object-fit: contain;
+  transform: scale(1.1);
+}
+
 /* SECTION TITLE */
 .info-heading {
   text-align: center;
@@ -70,7 +89,14 @@ body {
   color: #1e255e;
 }
 
-/* CARD STYLING */
+/* EXTRAS SECTION */
+.extras {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
 .extra-card {
   width: 100%;
   max-width: 1000px;
@@ -89,40 +115,37 @@ body {
   transform: translateY(0);
 }
 
-.extra-card h3 {
-  font-size: 26px;
+.transparent-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  display: block;
+  opacity: 0.9;
+  background: transparent;
+}
+
+.main-heading {
+  font-size: 40px;
   font-weight: 900;
-  margin-bottom: 14px;
   color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.sub-heading {
+  font-size: 30px;
+  font-weight: 700;
+  color: #f5f5f5;
+  margin-bottom: 15px;
 }
 
 .extra-card p {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 500;
   line-height: 1.9;
   color: #fdfdfd;
 }
 
-/* ICON LABELS */
-.card-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 18px;
-  border-radius: 30px;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 20px;
-  justify-content: center;
-}
-
-.card-label img {
-  width: 32px;
-  height: 32px;
-}
-
-/* Color themes for each card */
+/* COLOR THEMES */
 .blue {
   background: linear-gradient(135deg, #3b82f6, #60a5fa);
 }
@@ -136,54 +159,53 @@ body {
   background: linear-gradient(135deg, #f59e0b, #fcd34d);
 }
 
-.blue-box {
-  background: rgba(255, 255, 255, 0.2);
-}
-.green-box {
-  background: rgba(255, 255, 255, 0.2);
-}
-.pink-box {
-  background: rgba(255, 255, 255, 0.2);
-}
-.yellow-box {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* Responsive */
+/* RESPONSIVE STYLES */
 @media (max-width: 768px) {
+  .about-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
   .about-title {
     font-size: 3rem;
-    text-align: center;
   }
 
   .about-subtext {
     font-size: 17px;
-    text-align: center;
   }
 
-  .about-hero {
-    text-align: center;
+  .hero-left {
+    max-width: 100%;
   }
 
   .hero-icons {
     justify-content: center;
   }
 
-  .extra-card h3 {
-    font-size: 22px;
+  .hero-image {
+    margin-top: 30px;
+    justify-content: center;
+  }
+
+  .hero-image img {
+    max-width: 250px;
+    transform: scale(1);
+  }
+
+  .main-heading {
+    font-size: 24px;
+  }
+
+  .sub-heading {
+    font-size: 20px;
   }
 
   .extra-card p {
-    font-size: 17px;
-  }
-
-  .card-label {
     font-size: 16px;
-    padding: 10px 14px;
   }
 
-  .card-label img {
-    width: 24px;
-    height: 24px;
+  .transparent-icon {
+    width: 48px;
+    height: 48px;
   }
 }
