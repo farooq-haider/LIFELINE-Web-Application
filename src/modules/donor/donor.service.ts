@@ -1,3 +1,5 @@
+import nodemailer from "nodemailer";
+import crypto from "crypto";
 import bcrypt from "bcrypt";
 import DonorRepository from "./donor.repository";
 import Donor from "./donor.entity";
@@ -116,5 +118,39 @@ export class DonorService {
     }
 
     return;
+  }
+
+  static async sendOtpEmail(email: string): Promise<string> {
+    const otp = crypto.randomBytes(3).toString("hex"); // 6-digit hex OTP
+
+    const transporter = nodemailer.createTransport({
+      service: "Gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: `LIFELINE Support <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: "Your OTP for LIFELINE Signup",
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+          <h2 style="color: #3b82f6;">LIFELINE Verification Code</h2>
+          <p>Use the following OTP to complete your signup:</p>
+          <div style="font-size: 24px; font-weight: bold; margin: 20px 0; color: #2563eb;">${otp}</div>
+          <p>This OTP will expire in 10 minutes.</p>
+          <p style="font-size: 12px; color: #888;">If you didn’t request this, just ignore this email.</p>
+        </div>
+      `,
+    };
+    try {
+      await transporter.sendMail(mailOptions);
+      return otp; // Store this in DB for verification
+    } catch (error) {
+      console.error("Error sending OTP:", error);
+      throw error;
+    }
   }
 }

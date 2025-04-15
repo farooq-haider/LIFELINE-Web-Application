@@ -12,4 +12,6 @@ router.get("/", donorAuthMiddleware, DonorController.getAllDonors);
 router.get("/:id", DonorController.getDonorById);
 router.put("/:id", donorAuthMiddleware, DonorController.updateDonor);
 
+router.post("/otp", DonorController.sendOtpEmail);
+
 export default router;
