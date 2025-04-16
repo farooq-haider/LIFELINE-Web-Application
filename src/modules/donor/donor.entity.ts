@@ -28,7 +28,7 @@ export default class Donor extends BaseEntity {
   })
   bloodGroup!: "A+" | "A-" | "B+" | "B-" | "AB+" | "AB-" | "O+" | "O-";
 
-  @Column()
+  @Column({ nullable: true })
   lastDonation!: Date;
 
   @Column()

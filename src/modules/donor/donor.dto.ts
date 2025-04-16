@@ -38,6 +38,11 @@ export const UpdateDonorDTOSchema = z.object({
   isActive: z.boolean().default(true).optional(),
 });
 
+export const DonorResetPasswordDTOSchema = z.object({
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(8, "Password must be at least 8 characters long"),
+});
+
 export const DonorResponseDTOSchema = z.object({
   id: z.number().int().positive(),
   name: z.string(),
@@ -64,3 +69,4 @@ export type CreateDonorDTO = z.infer<typeof CreateDonorDTOSchema>;
 export type DonorResponseDTO = z.infer<typeof DonorResponseDTOSchema>;
 export type LoginDonorDTO = z.infer<typeof LoginDonorDTOSchema>;
 export type UpdateDonorDTO = z.infer<typeof UpdateDonorDTOSchema>;
+export type DonorResetPasswordDTO = z.infer<typeof DonorResetPasswordDTOSchema>;

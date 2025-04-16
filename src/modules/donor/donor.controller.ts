@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { DonorService, ValidBloodGroup } from "./donor.service";
 import {
   CreateDonorDTOSchema,
+  DonorResetPasswordDTOSchema,
   LoginDonorDTOSchema,
   UpdateDonorDTOSchema,
 } from "./donor.dto";
@@ -20,6 +21,20 @@ export default class DonorController {
     try {
       const donor = await DonorService.getDonorById(Number(req.params.id));
       res.status(200).json(donor);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async resetDonorPassword(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) {
+    try {
+      const validatedBody = DonorResetPasswordDTOSchema.parse(req.body);
+      await DonorService.resetPassword(validatedBody);
+      res.status(200).json({ message: "Password reset successfully" });
     } catch (error) {
       next(error);
     }

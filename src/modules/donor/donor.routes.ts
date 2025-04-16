@@ -8,6 +8,7 @@ router.post("/login", DonorController.loginDonor);
 router.post("/signup", DonorController.createDonor);
 router.get("/location", DonorController.getDonorsByLocation);
 router.get("/", donorAuthMiddleware, DonorController.getAllDonors);
+router.put("/reset-password", DonorController.resetDonorPassword);
 
 router.get("/:id", DonorController.getDonorById);
 router.put("/:id", donorAuthMiddleware, DonorController.updateDonor);

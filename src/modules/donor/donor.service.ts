@@ -3,6 +3,7 @@ import DonorRepository from "./donor.repository";
 import Donor from "./donor.entity";
 import {
   CreateDonorDTO,
+  DonorResetPasswordDTO,
   DonorResponseDTO,
   LoginDonorDTO,
   UpdateDonorDTO,
@@ -52,6 +53,20 @@ export class DonorService {
       throw new Error("No donors found in this location");
     }
     return donors;
+  }
+
+  static async resetPassword(data: DonorResetPasswordDTO): Promise<void> {
+    const donor = await DonorRepository.findByEmail(data.email);
+    if (!donor) {
+      throw new Error("Donor not found");
+    }
+
+    const hashedPassword = await bcrypt.hash(data.password, 10);
+    data.password = hashedPassword;
+    const result = await DonorRepository.update(donor.id, data);
+    if (!result) {
+      throw new Error("Failed to update password");
+    }
   }
 
   static async createDonor(data: CreateDonorDTO): Promise<string> {
