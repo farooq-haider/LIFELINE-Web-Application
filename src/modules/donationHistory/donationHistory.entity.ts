@@ -16,7 +16,10 @@ export default class DonationHistory extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @ManyToOne(() => Donor)
+  @ManyToOne(() => Donor, {
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
+  })
   @JoinColumn({ name: "donor_id" })
   donor_id!: Donor;
 

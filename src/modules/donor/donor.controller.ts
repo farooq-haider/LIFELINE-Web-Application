@@ -63,6 +63,7 @@ export default class DonorController {
       const token = await DonorService.createDonor(validatedBody);
       res.status(201).json({ userSecret: token });
     } catch (error) {
+      res.status(501).json({ message: error });
       next(error);
     }
   }
@@ -95,6 +96,18 @@ export default class DonorController {
       res.status(200).json(updatedDonor);
     } catch (error) {
       next(error);
+    }
+  }
+
+  static async sendOtpEmail(req: Request, res: Response, next: NextFunction) {
+    try {
+      const otp = await DonorService.sendOtpEmail(req.body.email);
+      res.status(200).json({
+        otp,
+      });
+    } catch (e) {
+      console.log(e);
+      res.status(400);
     }
   }
 }
