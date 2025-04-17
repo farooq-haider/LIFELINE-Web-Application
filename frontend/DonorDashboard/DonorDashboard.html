@@ -3,13 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Search & Filter | Lifeline</title>
+  <title>Dashboard | Lifeline</title>
+
+  <!-- CSS Files -->
   <link rel="stylesheet" href="DonorDashboard.css" />
+  
   <link rel="stylesheet" href="../footer.css" />
   <link rel="stylesheet" href="../header.css" />
 
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 </head>
+
 <body>
   <!-- Header -->
   <header class="header">
@@ -22,86 +30,78 @@
     </nav>
   </header>
 
+  <!-- Dashboard Container -->
+  <div class="dashboard-container">
 
-  <div class="dashboard-grid">
+    <!-- Profile Section -->
+    <section class="profile-card">
+        <div class="profile-picture">
+            <img src="../assets/avatar.png" alt="Profile Picture" id="profileImage">
+        </div>
 
-    <!-- 1. Profile -->
-    <div class="profile-wrapper">
-      <img src="../assets/avatar.png" alt="Profile" class="profile-img"/>
-      <button class="edit-photo">✎</button>
-    </div>
+        <div class="profile-info">
+            <div class="profile-item">
+                <label>Name:</label>
+                <span id="name">John Doe</span>
+                <button class="edit-btn" onclick="toggleEdit(this, 'name')">
+                    <i class="fas fa-edit"></i>
+                </button>
+            </div>
+            <div class="profile-item">
+                <label>City:</label>
+                <span id="city">New York</span>
+                <button class="edit-btn" onclick="toggleEdit(this, 'city')">
+                    <i class="fas fa-edit"></i>
+                </button>
+            </div>
+            <div class="profile-item">
+                <label>Contact:</label>
+                <span id="contact">+1 123 456 7890</span>
+                <button class="edit-btn" onclick="toggleEdit(this, 'contact')">
+                    <i class="fas fa-edit"></i>
+                </button>
+            </div>
+            <div class="profile-item">
+                <label>Blood Type:</label>
+                <span id="blood">O+</span>
+                <button class="edit-btn" onclick="toggleEdit(this, 'blood')">
+                    <i class="fas fa-edit"></i>
+                </button>
+            </div>
+        </div>
+    </section>
 
-    <!-- 2. Activity Toggle -->
-    <div class="card card-blue">
-      <h4>Activity Status</h4>
-      <p class="small-text">Keep This ON To Stay Visible To People In Need.</p>
-      <label class="switch">
-        <input type="checkbox" checked />
-        <span class="slider round"></span>
-      </label>
-    </div>
+    <!-- Action Cards -->
+    <section class="action-cards">
+        <div class="card">
+            
+            <h3>Get Verified</h3>
+            <img src="../assets/verified.png" alt="Verify Icon" class="card-icon">
+            <p>Boost your credibility by getting verified.</p>
+            <button class="primary-btn">Verify Now</button>
+        </div>
+          
+        <div class="card">
+            <h3>Maintain History</h3>
+            <img src="../assets/history.png" alt="History Icon" class="card-icon">
+            <p>Keep track of all your donations and activities.</p>
+            <button class="primary-btn">Start Tracking</button>
+        </div>
+    </section>
 
-    <!-- 3. Delete Account -->
-    <div class="card card-red delete-card">
-      <button class="delete-btn">DELETE ACCOUNT</button>
-    </div>
-
-    <!-- 4. Name -->
-    <div class="card card-blue editable-card">
-      <label>Name</label>
-      <p contenteditable="true">FAROOQ HAIDER</p>
-      <button class="edit-icon">✎</button>
-    </div>
-
-    <!-- 5. Contact -->
-    <div class="card card-blue editable-card">
-      <label>Contact</label>
-      <p contenteditable="true">+92 334 4232311</p>
-      <button class="edit-icon">✎</button>
-    </div>
-
-    <!-- 6. Location -->
-    <div class="card card-blue editable-card">
-      <label>Location</label>
-      <p contenteditable="true">Gujranwala, Punjab.</p>
-      <button class="edit-icon">✎</button>
-    </div>
-
-    <!-- 7. Description (No card) -->
-    <div class="plain-text">
-      Maintain Your Donations History To Receive AI Recommendations On Optimal Donation Intervals.
-    </div>
-
-    <!-- 8. Maintain History -->
-    <div class="card card-blue editable-card">
-      <label>History</label>
-      <p contenteditable="true">Maintain History</p>
-      <button class="edit-icon">✎</button>
-    </div>
-
-    <!-- 9. Blood Type -->
-    <div class="card card-red blood-card">
-      <label>BLOOD TYPE</label>
-      <p class="blood-type">A+</p>
-    </div>
-
-    <!-- 10. Verification Description (No card) -->
-    <div class="plain-text">
-      Verification Tags Build Trust Amongst The Recipients
-    </div>
-
-    <!-- 11. Get Verified -->
-    <div class="card card-blue verify-card">
-      <label>GET VERIFIED!</label>
-      <img src="../assets/verified.png" alt="Badge" class="badge-icon" />
-    </div>
-
+    <!-- Delete Account -->
+    <section class="delete-card">
+        <h3>Delete Account</h3>
+        <p>Warning: This action is irreversible.</p>
+        <button class="delete-btn">Delete My Account</button>
+    </section>
 
   </div>
 
-
   <!-- Footer -->
   <div id="footer-container"></div>
+
+  <!-- JavaScript -->
   <script src="DonorDashboard.js"></script>
 </body>
 </html>
