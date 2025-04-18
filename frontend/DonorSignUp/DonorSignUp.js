@@ -256,7 +256,7 @@ signUpForm.addEventListener("submit", async function (e) {
         if (response2.ok) {
           alert("Sign Up Successful!");
         } else {
-          alert(response.json().error);
+          alert("A Donor with this Email Already exists, try a different one.");
         }
       } else {
         alert("OTP Miss Match. Try Again.");
@@ -265,7 +265,7 @@ signUpForm.addEventListener("submit", async function (e) {
       alert("Something went wrong while sending the email. Try again.");
     }
   } catch (err) {
-    console.log(e);
-    alert(`Oops, Something went wrong. Try again later.${e}`);
+    console.log(err);
+    alert(`Oops, Something went wrong. Try again later.`);
   }
 });

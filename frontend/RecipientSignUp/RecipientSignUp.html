@@ -1,75 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Recipient Sign Up | Lifeline</title>
-  <link rel="stylesheet" href="RecipientSignUp.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="../footer.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipient Sign Up | Lifeline</title>
+    <link rel="stylesheet" href="RecipientSignUp.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../footer.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <header class="header">
-        <div class="logo">
-            <img src="../assets/logo.png" alt="Lifeline Logo">
-            <span>LIFELINE</span>
-        </div>
-    
-        <nav class="nav-links">
-            <a href="#">← Return <i class="fa-regular fa-user"></i></a>
-        </nav>
-    
+      <div class="logo">
+        <img src="../assets/logo.png" alt="Lifeline Logo" />
+        <span>LIFELINE</span>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#">← Return <i class="fa-regular fa-user"></i></a>
+      </nav>
     </header>
 
-  <main class="signup-container">
-    <h1>Sign Up</h1>
-    <p class="subtitle">Get Connected With Donors</p>
+    <main class="signup-container">
+      <h1>Sign Up</h1>
+      <p class="subtitle">Get Connected With Donors</p>
 
-    <form class="signup-form">
-      <div class="form-left">
-        <label>Username</label>
-        <input type="text" placeholder="Enter your username" required />
+      <form class="signup-form">
+        <div class="form-left">
+          <label>Name</label>
+          <input
+            id="username"
+            type="text"
+            placeholder="Enter your username"
+            required
+          />
 
-        <label>Email</label>
-        <input type="email" placeholder="Enter your email" required />
+          <label>Email</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="Enter your email"
+            required
+          />
 
-        <label>Password</label>
-        <input type="password" placeholder="Enter your password" required />
+          <label>Password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter your password"
+            required
+          />
 
-        <label>Confirm Password</label>
-        <input type="password" placeholder="Confirm your password" required />
-      </div>
+          <label>Confirm Password</label>
+          <input
+            id="confirm-password"
+            type="password"
+            placeholder="Confirm your password"
+            required
+          />
+        </div>
 
-      <div class="form-right">
-        <label>Province</label>
-        <select id="province" required>
-          <option value="">Select Province</option>
-          <option value="punjab">Punjab</option>
-          <option value="sindh">Sindh</option>
-          <option value="kpk">KPK</option>
-          <option value="balochistan">Balochistan</option>
-          <option value="ajk">Azad Jammu & Kashmir</option>
-          <option value="gilgitbaltistan">Gilgit-Baltistan</option>
-        </select>
+        <div class="form-right">
+          <label>Province</label>
+          <select id="province" id="province" required>
+            <option value="">Select Province</option>
+            <option value="punjab">Punjab</option>
+            <option value="sindh">Sindh</option>
+            <option value="kpk">KPK</option>
+            <option value="balochistan">Balochistan</option>
+            <option value="ajk">Azad Jammu & Kashmir</option>
+            <option value="gilgitbaltistan">Gilgit-Baltistan</option>
+          </select>
 
-        <label>City</label>
-        <select id="city" required>
-          <option value="">Select City</option>
-        </select>
+          <label>City</label>
+          <select id="city" required>
+            <option value="">Select City</option>
+          </select>
 
-        <label>Contact Number</label>
-        <input type="tel" placeholder="Enter your phone number" required />
+          <label>Contact Number</label>
+          <input
+            id="contact"
+            type="tel"
+            placeholder="Enter your phone number"
+            required
+          />
 
-        <button type="submit" class="register-btn">REGISTER</button>
-      </div>
-    </form>
+          <button type="submit" class="register-btn">REGISTER</button>
+        </div>
+      </form>
 
-    <p class="login-link">Already Have an Account? <a href="#">Log In Here</a></p>
-  </main>
+      <p class="login-link">
+        Already Have an Account? <a href="#">Log In Here</a>
+      </p>
+    </main>
 
-  <div id="footer-container"></div>
-  <script src="RecipientSignUp.js"></script>
-</body>
+    <div id="footer-container"></div>
+    <script src="../assets/config.js"></script>
+    <script src="RecipientSignUp.js"></script>
+  </body>
 </html>
