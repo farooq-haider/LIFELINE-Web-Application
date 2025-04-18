@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search & Filter | Lifeline</title>
+  <link rel="stylesheet" href="SearchingDonors.css" />
+  <link rel="stylesheet" href="../footer.css" />
+  <link rel="stylesheet" href="../header.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <img src="../assets/logo.png" alt="Lifeline Logo">
+      <span>LIFELINE</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#">← Return</a>
+    </nav>
+  </header>
+
+  <!-- Filters Section -->
+  <main class="filter-container">
+    <h1>Find Donors</h1>
+    <div class="filters">
+      <!-- Blood Group -->
+      <select class="filter-select" id="bloodGroup">
+        <option value="">Select Blood Group</option>
+        <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+        <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+      </select>
+
+      <!-- Urgency -->
+      <select class="filter-select" id="urgency">
+        <option value="">Select Urgency</option>
+        <option>Today</option>
+        <option>Tomorrow</option>
+        <option>This Week</option>
+        <option>Next Week</option>
+        <option>This Month</option>
+        <option>Next Month</option>
+      </select>
+
+      <!-- Donor Type -->
+      <select class="filter-select" id="donorType">
+        <option value="">Select Donor Type</option>
+        <option>Verified</option>
+        <option>Non Verified</option>
+        <option>All</option>
+      </select>
+    </div>
+
+    <!-- Province Cards -->
+    <div class="province-grid">
+      <div class="province-card blue" data-province="punjab">
+        <img src="../assets/punjab2.png" alt="Punjab" />
+        <p>Punjab</p>
+      </div>
+      <div class="province-card blue" data-province="sindh">
+        <img src="../assets/sindh.png" alt="Sindh" />
+        <p>Sindh</p>
+      </div>
+      <div class="province-card blue" data-province="kpk">
+        <img src="../assets/kpk.png" alt="KPK" />
+        <p>KPK</p>
+      </div>
+      <div class="province-card blue" data-province="balochistan">
+        <img src="../assets/balochistan.png" alt="Balochistan" />
+        <p>Balochistan</p>
+      </div>
+      <div class="province-card blue" data-province="ajk">
+        <img src="../assets/ajk.png" alt="AJK" />
+        <p>AJK</p>
+      </div>
+      <div class="province-card blue" data-province="gilgitbaltistan">
+        <img src="../assets/gilgit.png" alt="Gilgit" />
+        <p>Gilgit-Baltistan</p>
+      </div>
+    </div>
+
+    <p class="centered-warning">Must Select Province before Selecting City</p>
+
+    <!-- City Select (enabled after province) -->
+    <select class="filter-select" id="city" disabled>
+      <option value="">Select City</option>
+    </select>
+  </main>
+
+  <div class="filter-actions">
+    <button class="apply-btn grey">Apply</button>
+    <button class="clear-btn" id="clearFilters">Clear</button>
+  </div>
+  
+
+  <div class="results-section">
+    <div id="donor-cards-container"></div>
+    <div id="loading-indicator" class="loading hidden">Loading...</div>
+  </div>
+  
+  <!-- Footer -->
+  <div id="footer-container"></div>
+  <script src="SearchingDonors.js"></script>
+
+
+</body>
+</html>
