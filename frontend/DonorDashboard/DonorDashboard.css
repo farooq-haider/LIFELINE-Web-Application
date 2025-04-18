@@ -14,7 +14,7 @@ body {
 
 .dashboard-container {
   width: 100%;
-  max-width: 900px;
+  max-width: 1300px;
   margin: 30px auto;
   display: flex;
   flex-direction: column;
@@ -154,6 +154,7 @@ body {
   text-align: center;
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
   animation: slideUp 1s ease;
+  
 }
 
 .delete-btn {
