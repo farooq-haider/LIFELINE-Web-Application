@@ -34,4 +34,28 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("footer-container").innerHTML = data;
     })
     .catch(err => console.error("Failed to load footer:", err));
+
+
+    // Logout Popup Handling
+const logoutLink = document.getElementById("logout-link");
+const logoutPopup = document.getElementById("logout-popup");
+const yesBtn = document.querySelector(".yes-btn");
+const noBtn = document.querySelector(".no-btn");
+
+logoutLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  logoutPopup.classList.remove("hidden");
 });
+
+noBtn.addEventListener("click", () => {
+  logoutPopup.classList.add("hidden");
+});
+
+yesBtn.addEventListener("click", () => {
+  window.location.href = "../LandingPage/LandingPage.html";
+});
+
+});
+
+
+
