@@ -7,6 +7,7 @@ const router = Router();
 router.post("/login", DonorController.loginDonor);
 router.post("/signup", DonorController.createDonor);
 router.get("/location", DonorController.getDonorsByLocation);
+router.delete("/delete", donorAuthMiddleware, DonorController.deleteAccount);
 router.get("/", donorAuthMiddleware, DonorController.getAllDonors);
 router.put("/reset-password", DonorController.resetDonorPassword);
 

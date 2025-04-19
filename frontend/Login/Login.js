@@ -22,10 +22,13 @@ loginForm.addEventListener("submit", async function (e) {
       credentials: "include",
       body: JSON.stringify({ email, password }),
     });
+
+    const data = await res.json();
     if (res.ok) {
-      alert("Login Successful");
+      localStorage.setItem("userSecret", JSON.stringify(data.userSecret));
+      window.location.href = "../DonorDashboard/donorDashboard.html";
     } else {
-      alert("User with given Email and Password does not exist.");
+      alert("Incorrect Credentials. Please try again.");
     }
   } catch (e) {
     console.log(e);

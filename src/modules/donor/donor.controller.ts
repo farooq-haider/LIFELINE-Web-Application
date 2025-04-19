@@ -80,7 +80,7 @@ export default class DonorController {
 
   static async deleteAccount(req: Request, res: Response, next: NextFunction) {
     try {
-      const donorId = req.user.id;
+      const donorId = req.user.donorId;
       await DonorService.deleteDonor(donorId);
       res.status(200).json({ message: "Donor account deleted successfully" });
     } catch (error) {

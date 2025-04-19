@@ -126,7 +126,6 @@ export class DonorService {
     if (!donor) {
       throw new Error("Donor not found");
     }
-
     const result = await DonorRepository.deleteById(id);
     if (!result) {
       throw new Error("Failed to delete donor");
