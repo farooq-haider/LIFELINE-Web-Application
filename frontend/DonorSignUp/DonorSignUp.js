@@ -254,7 +254,6 @@ signUpForm.addEventListener("submit", async function (e) {
         });
 
         if (response2.ok) {
-          alert("Sign Up Successful!");
           window.location.href = "../login/login.html";
         } else {
           alert("A Donor with this Email Already exists, try a different one.");

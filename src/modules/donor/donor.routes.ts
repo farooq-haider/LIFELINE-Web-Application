@@ -11,7 +11,7 @@ router.delete("/delete", donorAuthMiddleware, DonorController.deleteAccount);
 router.get("/", donorAuthMiddleware, DonorController.getAllDonors);
 router.put("/reset-password", DonorController.resetDonorPassword);
 
-router.get("/:id", DonorController.getDonorById);
+router.post("/getDonor", donorAuthMiddleware, DonorController.getDonorById);
 router.put("/:id", donorAuthMiddleware, DonorController.updateDonor);
 
 router.post("/otp", DonorController.sendOtpEmail);

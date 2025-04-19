@@ -23,15 +23,15 @@ loginForm.addEventListener("submit", async function (e) {
       body: JSON.stringify({ email, password }),
     });
 
-    const data = await res.json();
     if (res.ok) {
+      const data = await res.json();
       localStorage.setItem("userSecret", JSON.stringify(data.userSecret));
-      window.location.href = "../DonorDashboard/donorDashboard.html";
+      window.location.href = "../DonorDashboard/DonorDashboard.html";
     } else {
       alert("Incorrect Credentials. Please try again.");
     }
-  } catch (e) {
-    console.log(e);
+  } catch (err) {
+    console.log(err);
     alert("Oops, Something went wrong. Try Again Later.");
   }
 });

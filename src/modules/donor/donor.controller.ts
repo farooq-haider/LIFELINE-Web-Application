@@ -19,9 +19,12 @@ export default class DonorController {
 
   static async getDonorById(req: Request, res: Response, next: NextFunction) {
     try {
-      const donor = await DonorService.getDonorById(Number(req.params.id));
-      res.status(200).json(donor);
+      const donor = await DonorService.getDonorById(Number(req.user.donorId));
+      console.log(donor);
+      res.status(200).json({ donor });
     } catch (error) {
+      console.log(error);
+      res.status(400);
       next(error);
     }
   }
@@ -74,6 +77,7 @@ export default class DonorController {
       const token = await DonorService.loginDonor(validatedBody);
       res.status(200).json({ userSecret: token });
     } catch (error) {
+      res.status(404);
       next(error);
     }
   }

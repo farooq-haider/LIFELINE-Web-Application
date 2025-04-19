@@ -26,13 +26,46 @@ function toggleEdit(button, fieldId) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async (e) => {
+  e.preventDefault();
   fetch("../footer.html")
     .then((res) => res.text())
     .then((data) => {
       document.getElementById("footer-container").innerHTML = data;
     })
     .catch((err) => console.error("Failed to load footer:", err));
+  try {
+    const userSecret = JSON.parse(localStorage.getItem("userSecret"));
+    const response = await fetch(`${BASE_URL}/api/donors/getDonor`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userSecret}`,
+      },
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      alert("Error while fetching user Data.");
+      return;
+    }
+    const result = await response.json();
+
+    const name = document.getElementById("name");
+    const city = document.getElementById("city");
+    const contact = document.getElementById("contact");
+    const blood = document.getElementById("blood");
+
+    const donor = result.donor;
+
+    name.textContent = donor.name;
+    contact.textContent = donor.phone;
+    city.textContent = donor.city;
+    blood.textContent = donor.bloodGroup;
+  } catch (err) {
+    alert("Oops. Something went wrong. Try again later.");
+    console.log(err);
+  }
 });
 
 async function deleteAccount() {
@@ -44,7 +77,7 @@ async function deleteAccount() {
     )
   ) {
     // Proceed with account deletion logic
-    const response = await fetch(`http://127.0.0.1:3000/api/donors/delete`, {
+    const response = await fetch(`${BASE_URL}/api/donors/delete`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +92,7 @@ async function deleteAccount() {
     }
 
     alert("Account deleted successfully.");
-    window.location.href = "../LandingPage/landingPage.html";
+    window.location.href = "../LandingPage/LandingPage.html";
   } else {
     // User canceled the action
     console.log("Account deletion canceled.");
