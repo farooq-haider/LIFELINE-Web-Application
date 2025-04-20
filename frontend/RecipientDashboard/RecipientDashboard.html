@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipient Dashboard | Lifeline</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="RecipientDashboard.css" />
+  <link rel="stylesheet" href="../footer/footer.css" />
+  <link rel="stylesheet" href="../header/header.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <img src="../assets/logo.png" alt="Lifeline Logo">
+      <span>LIFELINE</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#" id="logout-link">← Log Out</a>
+    </nav>
+  </header>
+
+  <!-- Dashboard Container -->
+  <div class="dashboard-container">
+
+    <!-- Profile Section -->
+    <section class="profile-card">
+      <div class="profile-picture">
+        <img src="../assets/avatar.png" alt="Profile Picture" id="profileImage">
+      </div>
+
+      <div class="profile-info">
+        <div class="profile-item">
+          <label>Name:</label>
+          <span id="name">Jane Smith</span>
+          <button class="edit-btn" onclick="toggleEdit(this, 'name')">
+            <i class="fas fa-edit"></i>
+          </button>
+        </div>
+        
+        <div class="profile-item">
+          <label>Contact:</label>
+          <span id="contact">+1 987 654 3210</span>
+          <button class="edit-btn" onclick="toggleEdit(this, 'contact')">
+            <i class="fas fa-edit"></i>
+          </button>
+        </div>
+
+        <div class="profile-item">
+          <label>City:</label>
+          <span id="city">Los Angeles</span>
+          
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Action Card -->
+    <section class="action-cards">
+      <div class="card">
+        <h3>Search Donors</h3>
+        <img src="../assets/request-blood.png" alt="Search Donors Icon" class="card-icon">
+        <p>Find the right blood donors easily and quickly near you.</p>
+        <button class="primary-btn">Search Now</button>
+      </div>
+    </section>
+
+    <!-- Delete Account -->
+    <section class="delete-card">
+      <h3>Delete Account</h3>
+      <p>Warning: This action is irreversible.</p>
+      <button class="delete-btn">Delete My Account</button>
+    </section>
+
+  </div>
+
+  <!-- Logout Confirmation Popup -->
+<div id="logout-popup" class="custom-popup hidden">
+  <div class="popup-content role-popup-content">
+    <h2 class="popup-heading">LIFELINE</h2>
+    <p class="popup-text">Are you sure you want to log out?</p>
+    <div class="role-cards">
+      <div class="role-card yes-btn">YES</div>
+      <div class="role-card no-btn">NO</div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- JavaScript -->
+  <script src="RecipientDashboard.js"></script>
+</body>
+</html>

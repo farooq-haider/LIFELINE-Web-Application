@@ -1,7 +1,7 @@
 // DonorSignup.js
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../footer.html")
+  fetch("../footer/footer.html")
     .then((res) => res.text())
     .then((data) => {
       document.getElementById("footer-container").innerHTML = data;
@@ -254,7 +254,7 @@ signUpForm.addEventListener("submit", async function (e) {
         });
 
         if (response2.ok) {
-          window.location.href = "../login/login.html";
+          window.location.href = "../DonorLogin/DonorLogin.html";
         } else {
           alert("A Donor with this Email Already exists, try a different one.");
         }

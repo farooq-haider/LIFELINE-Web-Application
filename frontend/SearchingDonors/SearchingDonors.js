@@ -2,7 +2,7 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     // Load footer
-    fetch("../footer.html")
+    fetch("../footer/footer.html")
       .then(res => res.text())
       .then(data => {
         document.getElementById("footer-container").innerHTML = data;

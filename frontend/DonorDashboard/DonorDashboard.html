@@ -7,10 +7,8 @@
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="DonorDashboard.css" />
-
-    <link rel="stylesheet" href="../footer.css" />
-    <link rel="stylesheet" href="../header.css" />
-
+    <link rel="stylesheet" href="../footer/footer.css" />
+    <link rel="stylesheet" href="../header/header.css" />
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
@@ -23,7 +21,6 @@
       rel="stylesheet"
     />
   </head>
-
   <body>
     <!-- Header -->
     <header class="header">
@@ -32,7 +29,7 @@
         <span>LIFELINE</span>
       </div>
       <nav class="nav-links">
-        <a href="#">← Return</a>
+        <a href="#" id="logout-link">← Log Out</a>
       </nav>
     </header>
 
@@ -56,13 +53,7 @@
               <i class="fas fa-edit"></i>
             </button>
           </div>
-          <div class="profile-item">
-            <label>City:</label>
-            <span id="city">New York</span>
-            <button class="edit-btn" onclick="toggleEdit(this, 'city')">
-              <i class="fas fa-edit"></i>
-            </button>
-          </div>
+
           <div class="profile-item">
             <label>Contact:</label>
             <span id="contact">+1 123 456 7890</span>
@@ -73,9 +64,16 @@
           <div class="profile-item">
             <label>Blood Type:</label>
             <span id="blood">O+</span>
-            <button class="edit-btn" onclick="toggleEdit(this, 'blood')">
-              <i class="fas fa-edit"></i>
-            </button>
+            <!-- <button class="edit-btn" onclick="toggleEdit(this, 'blood')">
+                    <i class="fas fa-edit"></i>
+                </button> -->
+          </div>
+          <div class="profile-item">
+            <label>City:</label>
+            <span id="city">New York</span>
+            <!-- <button class="edit-btn" onclick="toggleEdit(this, 'city')">
+                    <i class="fas fa-edit"></i>
+                </button> -->
           </div>
         </div>
       </section>
@@ -113,6 +111,21 @@
           Delete My Account
         </button>
       </section>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Logout Confirmation Popup -->
+    <div id="logout-popup" class="custom-popup hidden">
+      <div class="popup-content role-popup-content">
+        <h2 class="popup-heading">LIFELINE</h2>
+        <p class="popup-text">Are you sure you want to log out?</p>
+        <div class="role-cards">
+          <div class="role-card yes-btn">YES</div>
+          <div class="role-card no-btn">NO</div>
+        </div>
+      </div>
     </div>
 
     <!-- Footer -->

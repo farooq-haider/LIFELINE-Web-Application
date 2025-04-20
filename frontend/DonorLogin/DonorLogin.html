@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Lifeline</title>
+    <link rel="stylesheet" href="DonorLogin.css" />
+    <link rel="stylesheet" href="../footer/footer.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <img src="../assets/logo.png" alt="Lifeline Logo" />
+        <span>LIFELINE</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#">← Return</a>
+      </nav>
+    </header>
+
+    <main class="login-container">
+      <h1>Login</h1>
+      <p class="subtitle">Welcome to Lifeline</p>
+
+      <form class="login-form">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your Email Address"
+          required
+        />
+
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+          required
+        />
+
+        <div class="forgot-password">
+          <a href="#">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="login-btn">LOGIN</button>
+      </form>
+
+      <p class="signup-prompt">
+        New to Lifeline? <a href="../DonorSignUp/DonorSignUp.html">Sign Up</a>
+      </p>
+    </main>
+
+    <div id="footer-container"></div>
+    <script src="../assets/config.js"></script>
+    <script src="DonorLogin.js"></script>
+  </body>
+</html>

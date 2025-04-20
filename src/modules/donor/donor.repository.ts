@@ -73,7 +73,7 @@ export default class DonorRepository {
   }
 
   static async deleteById(id: number): Promise<boolean> {
-    const deleted = await this.donorRepository.softDelete(id);
+    const deleted = await this.donorRepository.delete(id);
     return deleted.affected !== 0;
   }
 }

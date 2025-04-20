@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../footer.html")
+  fetch("../footer/footer.html")
     .then((res) => res.text())
     .then((data) => {
       document.getElementById("footer-container").innerHTML = data;
@@ -239,7 +239,7 @@ signUpForm.addEventListener("submit", async function (e) {
         });
 
         if (response2.ok) {
-          alert("Sign Up Successful!");
+          window.location.href = "../RecipientLogin/RecipientLogin.html";
         } else {
           alert(
             "A Recipient with this Email Already exists, try a different one."

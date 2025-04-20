@@ -1,7 +1,7 @@
 loginForm = document.querySelector(".login-form");
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../footer.html")
+  fetch("../footer/footer.html")
     .then((res) => res.text())
     .then((data) => {
       document.getElementById("footer-container").innerHTML = data;
@@ -14,7 +14,7 @@ loginForm.addEventListener("submit", async function (e) {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    const res = await fetch(`${BASE_URL}/api/donors/login`, {
+    const res = await fetch(`${BASE_URL}/api/recipients/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +26,7 @@ loginForm.addEventListener("submit", async function (e) {
     if (res.ok) {
       const data = await res.json();
       localStorage.setItem("userSecret", JSON.stringify(data.userSecret));
-      window.location.href = "../DonorDashboard/DonorDashboard.html";
+      window.location.href = "../RecipientDashboard/RecipientDashboard.html";
     } else {
       alert("Incorrect Credentials. Please try again.");
     }

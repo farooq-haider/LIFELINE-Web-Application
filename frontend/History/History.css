@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(to right, #e0f7fa, #ffffff);
+    min-height: 100vh;
+  }
+  
+  /* History Container */
+  .history-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Add Button */
+  .add-history-btn {
+    background: #4fc3f7;
+    color: white;
+    padding: 12px 24px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background 0.3s ease;
+  }
+  
+  .add-history-btn:hover {
+    background: #039be5;
+  }
+  
+  /* Form */
+  .history-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .history-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .submit-btn {
+    background: #00bfa5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background: #008e76;
+  }
+  
+  /* Ticket Style */
+  .tickets-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .ticket-card {
+    background: #ffffff;
+    border: 2px dashed #4fc3f7;
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    animation: popIn 0.5s ease;
+  }
+  
+  .ticket-card::before,
+  .ticket-card::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #e0f7fa;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .ticket-card::before {
+    left: -10px;
+  }
+  
+  .ticket-card::after {
+    right: -10px;
+  }
+  
+  .ticket-date {
+    font-weight: bold;
+    color: #039be5;
+    font-size: 16px;
+  }
+  
+  .ticket-desc {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Animation */
+  @keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .history-form {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .history-form input, .submit-btn {
+      width: 90%;
+    }
+  }
+  
