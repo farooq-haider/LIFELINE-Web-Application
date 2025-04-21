@@ -12,7 +12,7 @@ const AppDataSource = new DataSource({
   password: config.db.password,
   database: config.db.database,
   synchronize: true,
-  // dropSchema: true,
+  //dropSchema: true,
   entities: [Donor, DonationHistory, Recipient],
 });
 

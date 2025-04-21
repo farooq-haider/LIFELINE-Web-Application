@@ -1,3 +1,6 @@
+function rediretToHistory() {
+  window.location.href = "../History/History.html";
+}
 function toggleEdit(button, fieldId) {
   const currentElement = document.getElementById(fieldId);
 

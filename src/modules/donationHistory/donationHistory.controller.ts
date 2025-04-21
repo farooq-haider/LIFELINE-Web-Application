@@ -10,10 +10,11 @@ export default class DonationHistoryController {
   ) {
     try {
       const history = await DonationHistoryService.getAllDonationsFromUser(
-        1 //req.user.id
+        req.user.donorId
       );
-      res.status(200).json(history);
+      res.status(200).json({ history });
     } catch (error) {
+      res.status(401);
       next(error);
     }
   }
@@ -24,16 +25,20 @@ export default class DonationHistoryController {
     next: NextFunction
   ) {
     try {
+      req.body.donationDate = new Date(req.body.donationDate);
       const validatedBody = CreateDonationsHistoryDTOSchema.parse(req.body);
       const history = {
         description: validatedBody.description,
-        donor_id: 1, //req.user.id,
+        donor_id: req.user.donorId,
+        donationDate: validatedBody.donationDate,
       };
       const newDoonation = await DonationHistoryService.createDonationHistory(
         history
       );
       res.status(201).json(newDoonation);
     } catch (error) {
+      console.log(error);
+      res.status(501);
       next(error);
     }
   }

@@ -2,12 +2,13 @@ import { z } from "zod";
 
 export const CreateDonationsHistoryDTOSchema = z.object({
   description: z.string(),
+  donationDate: z.date(),
 });
 
 export const DonationsHistoryResponseDTOSchema = z.object({
-  id: z.number().int().positive(),
   donor_id: z.number().int().positive(),
   description: z.string(),
+  donationDate: z.date(),
 });
 
 export type CreateDonationsHistoryDTO = z.infer<

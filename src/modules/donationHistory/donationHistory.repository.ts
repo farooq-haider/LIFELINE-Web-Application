@@ -16,6 +16,7 @@ export default class DonationHistoryRepository {
       id: history.id,
       donor_id: history.donor_id,
       description: history.description,
+      donationDate: history.donationDate,
     });
   }
   static async findAll(donor_id: number): Promise<DonationHistory[]> {
@@ -28,7 +29,7 @@ export default class DonationHistoryRepository {
   static async create(
     history: CreateDonationsHistoryDTO
   ): Promise<DonationsHistoryResponseDTO> {
-    const newEntry = await this.donationHistoryRepository.save(history);
+    const newEntry = await this.donationHistoryRepository.create(history);
     return this.mapToDTO(newEntry);
   }
 }

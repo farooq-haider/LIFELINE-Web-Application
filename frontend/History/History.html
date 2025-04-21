@@ -1,54 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>History | Lifeline</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History | Lifeline</title>
 
-  <!-- CSS Files -->
-  <link rel="stylesheet" href="History.css" />
-  <link rel="stylesheet" href="../footer/footer.css" />
-  <link rel="stylesheet" href="../header/header.css" />
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="History.css" />
+    <link rel="stylesheet" href="../footer/footer.css" />
+    <link rel="stylesheet" href="../header/header.css" />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-</head>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
-  <!-- Header -->
-  <header class="header">
-    <div class="logo">
-      <img src="../assets/logo.png" alt="Lifeline Logo">
-      <span>LIFELINE</span>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <img src="../assets/logo.png" alt="Lifeline Logo" />
+        <span>LIFELINE</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#">← Return</a>
+      </nav>
+    </header>
+
+    <!-- Main History Container -->
+    <div class="history-container">
+      <!-- Add History Button -->
+      <button class="add-history-btn" onclick="showForm()">
+        + Add History
+      </button>
+
+      <!-- Hidden Form -->
+      <div class="history-form" id="historyForm" style="display: none">
+        <input type="date" id="historyDate" required />
+        <input
+          type="text"
+          id="historyDesc"
+          placeholder="Description"
+          required
+        />
+        <button class="submit-btn" onclick="addHistory()">Add</button>
+      </div>
+
+      <!-- Tickets will appear here -->
+      <div class="tickets-container" id="ticketsContainer"></div>
     </div>
-    <nav class="nav-links">
-      <a href="#">← Return</a>
-    </nav>
-  </header>
 
-  <!-- Main History Container -->
-  <div class="history-container">
-    
-    <!-- Add History Button -->
-    <button class="add-history-btn" onclick="showForm()">+ Add History</button>
+    <!-- Footer -->
+    <div id="footer-container"></div>
 
-    <!-- Hidden Form -->
-    <div class="history-form" id="historyForm" style="display: none;">
-      <input type="date" id="historyDate" required />
-      <input type="text" id="historyDesc" placeholder="Description" required />
-      <button class="submit-btn" onclick="addHistory()">Add</button>
-    </div>
-
-    <!-- Tickets will appear here -->
-    <div class="tickets-container" id="ticketsContainer"></div>
-
-  </div>
-
-  <!-- Footer -->
-  <div id="footer-container"></div>
-
-  <!-- JavaScript -->
-  <script src="History.js"></script>
-</body>
+    <!-- JavaScript -->
+    <script src="../assets/config.js"></script>
+    <script src="History.js"></script>
+  </body>
 </html>

@@ -25,4 +25,7 @@ export default class DonationHistory extends BaseEntity {
 
   @Column()
   description!: string;
+
+  @Column()
+  donationDate!: Date;
 }

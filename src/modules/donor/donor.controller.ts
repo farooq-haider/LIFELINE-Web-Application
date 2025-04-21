@@ -20,7 +20,6 @@ export default class DonorController {
   static async getDonorById(req: Request, res: Response, next: NextFunction) {
     try {
       const donor = await DonorService.getDonorById(Number(req.user.donorId));
-      console.log(donor);
       res.status(200).json({ donor });
     } catch (error) {
       console.log(error);
