@@ -42,19 +42,18 @@ export default class DonorController {
     }
   }
 
-  static async getDonorsByLocation(
-    req: Request,
-    res: Response,
-    next: NextFunction
-  ) {
+  static async searchDonors(req: Request, res: Response, next: NextFunction) {
     try {
-      const { city, bloodGroup } = req.body;
+      const { city, blood, verified } = req.body;
       const donors = await DonorService.getDonorsByLocation(
         city as string,
-        bloodGroup as ValidBloodGroup
+        blood as ValidBloodGroup,
+        verified as string
       );
-      res.status(200).json(donors);
+      res.status(200).json({ donors });
     } catch (error) {
+      console.log(error);
+      res.status(401);
       next(error);
     }
   }

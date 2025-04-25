@@ -41,11 +41,20 @@ export default class DonorRepository {
 
   static async findByLocation(
     bloodGroup: "A+" | "A-" | "B+" | "B-" | "AB+" | "AB-" | "O+" | "O-",
-    city: string
+    city: string,
+    verified: string
   ): Promise<DonorResponseDTO[]> {
-    const donors = await this.donorRepository.find({
-      where: { city, bloodGroup },
-    });
+    console.log(bloodGroup, city, verified);
+    let donors;
+    if (verified === "1") {
+      donors = await this.donorRepository.find({
+        where: { city, bloodGroup, verified: true, isActive: true },
+      });
+    } else {
+      donors = await this.donorRepository.find({
+        where: { city, bloodGroup, isActive: true },
+      });
+    }
     return donors.map(this.mapToDTO);
   }
 

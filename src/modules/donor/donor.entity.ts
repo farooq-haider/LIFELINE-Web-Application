@@ -45,6 +45,9 @@ export default class Donor extends BaseEntity {
   @Column()
   isActive!: boolean;
 
+  @Column()
+  verified!: boolean;
+
   @CreateDateColumn()
   createdAt!: Date;
 

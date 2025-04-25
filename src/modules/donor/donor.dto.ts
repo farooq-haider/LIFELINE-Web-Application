@@ -21,6 +21,7 @@ export const CreateDonorDTOSchema = z.object({
   address: z.string(),
   city: z.string(),
   isActive: z.boolean().default(true),
+  verified: z.boolean().default(false),
 });
 
 export const UpdateDonorDTOSchema = z.object({

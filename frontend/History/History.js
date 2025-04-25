@@ -40,7 +40,11 @@ async function addHistory() {
   ticket.className = "ticket-card";
   const newDate = new Date(date);
   ticket.innerHTML = `
-      <div class="ticket-date">${newDate.toLocaleDateString()}</div>
+      <div class="ticket-date">${newDate.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })}</div>
       <div class="ticket-desc">${desc}</div>
     `;
 
@@ -79,7 +83,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       ticket.className = "ticket-card";
       const date = new Date(item.donationDate);
       ticket.innerHTML = `
-          <div class="ticket-date">${date.toLocaleDateString()}</div>
+          <div class="ticket-date">${date.toLocaleDateString("en-GB", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })}</div>
           <div class="ticket-desc">${item.description}</div>
         `;
 

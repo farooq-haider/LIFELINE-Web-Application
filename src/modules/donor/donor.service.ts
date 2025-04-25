@@ -48,9 +48,14 @@ export class DonorService {
 
   static async getDonorsByLocation(
     city: string,
-    bloodGroup: ValidBloodGroup
+    bloodGroup: ValidBloodGroup,
+    verified: string
   ): Promise<DonorResponseDTO[]> {
-    const donors = await DonorRepository.findByLocation(bloodGroup, city);
+    const donors = await DonorRepository.findByLocation(
+      bloodGroup,
+      city,
+      verified
+    );
     if (!donors || donors.length === 0) {
       throw new Error("No donors found in this location");
     }

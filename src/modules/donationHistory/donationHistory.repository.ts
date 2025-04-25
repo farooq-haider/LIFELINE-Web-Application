@@ -29,7 +29,7 @@ export default class DonationHistoryRepository {
   static async create(
     history: CreateDonationsHistoryDTO
   ): Promise<DonationsHistoryResponseDTO> {
-    const newEntry = await this.donationHistoryRepository.create(history);
+    const newEntry = await this.donationHistoryRepository.save(history);
     return this.mapToDTO(newEntry);
   }
 }
