@@ -92,11 +92,12 @@ export default class DonorController {
 
   static async updateDonor(req: Request, res: Response, next: NextFunction) {
     try {
-      const donorId = Number(req.params.id);
+      const donorId = req.user.donorId;
       const updatedData = UpdateDonorDTOSchema.parse(req.body);
       const updatedDonor = await DonorService.updateDonor(donorId, updatedData);
       res.status(200).json(updatedDonor);
     } catch (error) {
+      console.log(error);
       next(error);
     }
   }

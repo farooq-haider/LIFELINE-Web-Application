@@ -1,7 +1,12 @@
 import bcrypt from "bcrypt";
 import RecipientRepository from "./recipient.repository";
 import Recipient from "./recipient.entity";
-import { CreateRecipientDTO, LoginRecipientDTO } from "./recipient.dto";
+import {
+  CreateRecipientDTO,
+  LoginRecipientDTO,
+  RecipientResponseDTO,
+  UpdateRecipientDTO,
+} from "./recipient.dto";
 import jwt from "jsonwebtoken";
 import config from "../../config/config";
 
@@ -45,5 +50,38 @@ export class RecipientService {
     );
 
     return userSecret;
+  }
+
+  static async getRecipientById(id: number): Promise<RecipientResponseDTO> {
+    const recipient = await RecipientRepository.findById(id);
+    if (!recipient) {
+      throw new Error("Donor not found");
+    }
+    return recipient;
+  }
+
+  static async deleteRecipient(id: number): Promise<void> {
+    const recipient = await RecipientRepository.findById(id);
+    if (!recipient) {
+      throw new Error("Donor not found");
+    }
+    const result = await RecipientRepository.deleteById(id);
+    if (!result) {
+      throw new Error("Failed to delete donor");
+    }
+
+    return;
+  }
+
+  static async updateRecipient(
+    id: number,
+    data: UpdateRecipientDTO
+  ): Promise<Boolean> {
+    const recipient = await RecipientRepository.findById(id);
+    if (!recipient) {
+      throw new Error("Donor not found");
+    }
+    const result = RecipientRepository.update(id, data);
+    return result;
   }
 }

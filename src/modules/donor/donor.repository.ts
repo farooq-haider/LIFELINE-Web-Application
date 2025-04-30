@@ -68,15 +68,11 @@ export default class DonorRepository {
     return this.mapToDTO(newDonor);
   }
 
-  static async update(
-    id: number,
-    donor: UpdateDonorDTO
-  ): Promise<DonorResponseDTO> {
-    const user = await this.donorRepository.findOne({ where: { id } });
-    await this.donorRepository.save({ ...donor, id });
+  static async update(id: number, donor: UpdateDonorDTO): Promise<Boolean> {
+    const user = await this.donorRepository.update({ id }, donor);
+    console.log(id);
     if (user) {
-      Object.assign(user, donor);
-      return this.mapToDTO(user);
+      return true;
     }
     throw new Error("User not found");
   }

@@ -114,10 +114,7 @@ export class DonorService {
     return userSecret;
   }
 
-  static async updateDonor(
-    id: number,
-    data: UpdateDonorDTO
-  ): Promise<DonorResponseDTO> {
+  static async updateDonor(id: number, data: UpdateDonorDTO): Promise<Boolean> {
     const donor = await DonorRepository.findById(id);
     if (!donor) {
       throw new Error("Donor not found");
