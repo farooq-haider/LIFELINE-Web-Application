@@ -30,13 +30,6 @@ export default class RecipientRepository {
     return recipient;
   }
 
-  static async findById(id: number): Promise<Recipient | null> {
-    const recipient = await this.RecipientRepository.findOne({
-      where: { id },
-    });
-    return recipient;
-  }
-
   static async create(
     recipient: CreateRecipientDTO
   ): Promise<RecipientResponseDTO> {

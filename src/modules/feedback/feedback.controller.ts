@@ -5,7 +5,6 @@ import { FeedbackService } from "./feedback.service";
 export default class FeedbackController {
   static async createFeedback(req: Request, res: Response, next: NextFunction) {
     try {
-      console.log(req.body, req.user);
       const validatedBody = CreateFeedbackDTOSchema.parse({
         rating: req.body.rating,
         content: req.body.content,
