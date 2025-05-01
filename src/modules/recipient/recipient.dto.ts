@@ -28,6 +28,19 @@ export const RecipientResponseDTOSchema = z.object({
   updatedAt: z.date(),
 });
 
+export const UpdateRecipientDTOSchema = z.object({
+  name: z.string().optional(),
+  email: z.string().email().optional(),
+  password: z
+    .string()
+    .min(8, "Password must be at least 8 characters long")
+    .optional(),
+  phone: z.string().optional(),
+  address: z.string().optional(),
+  city: z.string().optional(),
+});
+
 export type CreateRecipientDTO = z.infer<typeof CreateRecipientDTOSchema>;
 export type RecipientResponseDTO = z.infer<typeof RecipientResponseDTOSchema>;
 export type LoginRecipientDTO = z.infer<typeof LoginRecipientDTOSchema>;
+export type UpdateRecipientDTO = z.infer<typeof UpdateRecipientDTOSchema>;

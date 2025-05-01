@@ -12,7 +12,7 @@ router.get("/", donorAuthMiddleware, DonorController.getAllDonors);
 router.put("/reset-password", DonorController.resetDonorPassword);
 
 router.post("/getDonor", donorAuthMiddleware, DonorController.getDonorById);
-router.put("/:id", donorAuthMiddleware, DonorController.updateDonor);
+router.put("/update", donorAuthMiddleware, DonorController.updateDonor);
 
 router.post("/otp", DonorController.sendOtpEmail);
 

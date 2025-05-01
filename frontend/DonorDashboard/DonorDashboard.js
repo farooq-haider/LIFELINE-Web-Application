@@ -1,12 +1,33 @@
 function rediretToHistory() {
   window.location.href = "../History/History.html";
 }
-function toggleEdit(button, fieldId) {
+async function toggleEdit(button, fieldId) {
   const currentElement = document.getElementById(fieldId);
-
   if (button.classList.contains("editing")) {
     // Save Mode
+
     const inputField = button.previousElementSibling;
+    let data = {};
+    if (fieldId === "contact") {
+      data.phone = inputField.value;
+    } else if (fieldId === "name") {
+      data.name = inputField.value;
+    }
+
+    const userSecret = JSON.parse(localStorage.getItem("userSecret"));
+    const response = await fetch(`${BASE_URL}/api/donors/update`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userSecret}`,
+      },
+      credentials: "include",
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) {
+      alert("Update failed. Try again later.");
+      return;
+    }
     const newSpan = document.createElement("span");
     newSpan.id = fieldId;
     newSpan.textContent = inputField.value;
@@ -18,6 +39,7 @@ function toggleEdit(button, fieldId) {
     button.classList.remove("editing");
   } else {
     // Edit Mode
+
     const input = document.createElement("input");
     input.type = "text";
     input.value = currentElement.textContent;
