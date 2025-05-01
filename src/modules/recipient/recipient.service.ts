@@ -16,7 +16,11 @@ export class RecipientService {
     data.password = hashedPassword;
     const newRecipient = await RecipientRepository.create(data);
     const userSecret = jwt.sign(
-      { recipientId: newRecipient.id, recipientEmail: newRecipient.email },
+      {
+        id: newRecipient.id,
+        email: newRecipient.email,
+        userType: "RECIPIENT",
+      },
       config.JWT_SECRET,
       { expiresIn: "1h" }
     );

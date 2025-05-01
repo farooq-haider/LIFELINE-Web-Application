@@ -10,7 +10,7 @@ export default class DonationHistoryController {
   ) {
     try {
       const history = await DonationHistoryService.getAllDonationsFromUser(
-        req.user.donorId
+        req.user.id
       );
       res.status(200).json({ history });
     } catch (error) {
@@ -29,7 +29,7 @@ export default class DonationHistoryController {
       const validatedBody = CreateDonationsHistoryDTOSchema.parse(req.body);
       const history = {
         description: validatedBody.description,
-        donor_id: req.user.donorId,
+        donor_id: req.user.id,
         donationDate: validatedBody.donationDate,
       };
       const newDoonation = await DonationHistoryService.createDonationHistory(

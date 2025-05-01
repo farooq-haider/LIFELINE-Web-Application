@@ -19,7 +19,7 @@ export default class DonorController {
 
   static async getDonorById(req: Request, res: Response, next: NextFunction) {
     try {
-      const donor = await DonorService.getDonorById(Number(req.user.donorId));
+      const donor = await DonorService.getDonorById(Number(req.user.id));
       res.status(200).json({ donor });
     } catch (error) {
       console.log(error);
@@ -82,7 +82,7 @@ export default class DonorController {
 
   static async deleteAccount(req: Request, res: Response, next: NextFunction) {
     try {
-      const donorId = req.user.donorId;
+      const donorId = req.user.id;
       await DonorService.deleteDonor(donorId);
       res.status(200).json({ message: "Donor account deleted successfully" });
     } catch (error) {

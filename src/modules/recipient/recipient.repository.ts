@@ -6,7 +6,7 @@ import {
 } from "./recipient.dto";
 import Recipient from "./recipient.entity";
 
-export default class DonorRepository {
+export default class RecipientRepository {
   private static RecipientRepository = AppDataSource.getRepository(Recipient);
 
   private static mapToDTO(recipient: Recipient): RecipientResponseDTO {
@@ -25,6 +25,13 @@ export default class DonorRepository {
   static async findByEmail(email: string): Promise<Recipient | null> {
     const recipient = await this.RecipientRepository.findOne({
       where: { email },
+    });
+    return recipient;
+  }
+
+  static async findById(id: number): Promise<Recipient | null> {
+    const recipient = await this.RecipientRepository.findOne({
+      where: { id },
     });
     return recipient;
   }

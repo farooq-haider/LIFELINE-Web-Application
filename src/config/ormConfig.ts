@@ -3,6 +3,7 @@ import Donor from "../modules/donor/donor.entity";
 import DonationHistory from "../modules/donationHistory/donationHistory.entity";
 import Recipient from "../modules/recipient/recipient.entity";
 import config from "./config";
+import Feedback from "../modules/feedback/feedback.entity";
 
 const AppDataSource = new DataSource({
   type: "postgres",
@@ -12,8 +13,7 @@ const AppDataSource = new DataSource({
   password: config.db.password,
   database: config.db.database,
   synchronize: true,
-  //dropSchema: true,
-  entities: [Donor, DonationHistory, Recipient],
+  entities: [Donor, DonationHistory, Recipient, Feedback],
 });
 
 export default AppDataSource;

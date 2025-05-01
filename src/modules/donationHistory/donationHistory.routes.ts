@@ -1,17 +1,17 @@
 import { Router } from "express";
 import DonationHistoryController from "./donationHistory.controller";
-import donorAuthMiddleware from "../../middlewares/donorAuth.middleware";
+import userAuthMiddleware from "../../middlewares/userAuth.middleware";
 
 const router = Router();
 
 router.get(
   "/",
-  donorAuthMiddleware,
+  userAuthMiddleware,
   DonationHistoryController.getAllDonationHistory
 );
 router.post(
   "/create",
-  donorAuthMiddleware,
+  userAuthMiddleware,
   DonationHistoryController.createDonationHistory
 );
 

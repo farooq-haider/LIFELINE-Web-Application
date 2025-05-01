@@ -86,7 +86,7 @@ export class DonorService {
     data.password = hashedPassword;
     const newDonor = await DonorRepository.create(data);
     const userSecret = jwt.sign(
-      { donorId: newDonor.id, donorEmail: newDonor.email },
+      { id: newDonor.id, email: newDonor.email, userType: "DONOR" },
       config.JWT_SECRET,
       { expiresIn: "1h" }
     );
@@ -106,7 +106,7 @@ export class DonorService {
     }
 
     const userSecret = jwt.sign(
-      { donorId: donor.id, donorEmail: donor.email },
+      { id: donor.id, email: donor.email, userType: "DONOR" },
       config.JWT_SECRET,
       { expiresIn: "1h" }
     );
