@@ -24,7 +24,8 @@ loginForm.addEventListener("submit", async function (e) {
     });
     if (res.ok) {
       const data = await res.json();
-      localStorage.setItem("userSecret", JSON.stringify(data.userSecret));
+      // localStorage.setItem("userSecret", JSON.stringify(data.userSecret));
+      sessionStorage.setItem("userSecret", JSON.stringify(data.userSecret));
       window.location.href = "../DonorDashboard/DonorDashboard.html";
     } else {
       alert("User with given Email and Password does not exist.");

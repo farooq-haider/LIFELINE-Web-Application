@@ -12,7 +12,8 @@ async function addHistory() {
       alert("Both fields are required!");
       return;
     }
-    const userSecret = JSON.parse(localStorage.getItem("userSecret"));
+    // const userSecret = JSON.parse(localStorage.getItem("userSecret"));
+    const userSecret = JSON.parse(sessionStorage.getItem("userSecret"));
     const history = {
       description: desc,
       donationDate: date,
@@ -64,7 +65,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     })
     .catch((err) => console.error("Failed to load footer:", err));
   try {
-    const userSecret = JSON.parse(localStorage.getItem("userSecret"));
+    // const userSecret = JSON.parse(localStorage.getItem("userSecret"));
+    const userSecret = JSON.parse(sessionStorage.getItem("userSecret"));
     const response = await fetch(`${BASE_URL}/api/donationHistory/`, {
       method: "GET",
       headers: {

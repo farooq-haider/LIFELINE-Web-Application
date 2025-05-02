@@ -11,7 +11,8 @@ async function toggleEdit(button, fieldId) {
       data.name = inputField.value;
     }
 
-    const userSecret = JSON.parse(localStorage.getItem("userSecret"));
+    // const userSecret = JSON.parse(localStorage.getItem("userSecret"));
+    const userSecret = JSON.parse(sessionStorage.getItem("userSecret"));
     const response = await fetch(`${BASE_URL}/api/recipients/update`, {
       method: "PUT",
       headers: {
@@ -56,7 +57,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     })
     .catch((err) => console.error("Failed to load footer:", err));
   try {
-    const userSecret = JSON.parse(localStorage.getItem("userSecret"));
+    // const userSecret = JSON.parse(localStorage.getItem("userSecret"));
+    const userSecret = JSON.parse(sessionStorage.getItem("userSecret"));
     const response = await fetch(`${BASE_URL}/api/recipients/getRec`, {
       method: "POST",
       headers: {
@@ -106,7 +108,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function deleteAccount() {
-  const userSecret = JSON.parse(localStorage.getItem("userSecret"));
+  // const userSecret = JSON.parse(localStorage.getItem("userSecret"));
+  const userSecret = JSON.parse(sessionStorage.getItem("userSecret"));
 
   if (
     confirm(

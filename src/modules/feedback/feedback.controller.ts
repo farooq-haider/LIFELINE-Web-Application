@@ -6,7 +6,7 @@ export default class FeedbackController {
   static async createFeedback(req: Request, res: Response, next: NextFunction) {
     try {
       const validatedBody = CreateFeedbackDTOSchema.parse({
-        rating: req.body.rating,
+        rating: parseInt(req.body.rating, 10),
         content: req.body.content,
         userType: req.user.userType,
         userId: req.user.id,
