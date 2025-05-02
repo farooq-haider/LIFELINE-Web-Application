@@ -1,24 +1,38 @@
-<div class="chatbot-container">
-    <div class="chatbot-button-wrapper">
-        <span class="chatbot-pulse"></span>
-        <button id="chatbot-toggle">
-            <img src="../assets/chatbot.png" alt="Chatbot Icon">
-        </button>
-    </div>
-    
-    
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="chatbot-window hidden">
-        <div class="chatbot-header">LIFELINE A.I.</div>
-        <div class="chatbot-body">
-            <div class="chatbot-message bot">Hi there! I'm Lifeline A.I. How can I help you today?</div>
-        </div>
-        <div class="chatbot-footer">
-            <input type="text" id="chatbot-input" placeholder="Type your message..." />
-            <button id="chatbot-send">
-                <img src="../assets/enter.png" alt="Send" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+
+<body>
+    <div class="chatbot-container">
+        <div class="chatbot-button-wrapper">
+            <span class="chatbot-pulse"></span>
+            <button id="chatbot-toggle">
+                <img src="../assets/chatbot.png" alt="Chatbot Icon">
             </button>
-            
+        </div>
+
+        <div class="chatbot-window hidden">
+            <div class="chatbot-header">LIFELINE A.I.</div>
+            <div class="chatbot-body">
+                <div class="chatbot-message bot">Hi there! I'm Lifeline A.I. How can I help you today?</div>
+            </div>
+            <div class="chatbot-footer">
+                <input type="text" id="chatbot-input" placeholder="Type your message..." />
+                <button id="chatbot-send">
+                    <img src="../assets/enter.png" alt="Send" />
+                </button>
+            </div>
         </div>
     </div>
-</div>
+
+    <script src="../assets/config.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+
+</html>
