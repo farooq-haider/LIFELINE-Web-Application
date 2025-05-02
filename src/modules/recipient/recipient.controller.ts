@@ -37,7 +37,7 @@ export default class RecipientController {
   ) {
     try {
       const recipient = await RecipientService.getRecipientById(
-        Number(req.user.recipientId)
+        Number(req.user.id)
       );
       res.status(200).json({ recipient });
     } catch (error) {
@@ -48,7 +48,7 @@ export default class RecipientController {
   }
   static async deleteAccount(req: Request, res: Response, next: NextFunction) {
     try {
-      const recipientId = req.user.recipientId;
+      const recipientId = req.user.id;
       await RecipientService.deleteRecipient(recipientId);
       res.status(200).json({ message: "Donor account deleted successfully" });
     } catch (error) {
@@ -62,7 +62,7 @@ export default class RecipientController {
     next: NextFunction
   ) {
     try {
-      const recipientId = req.user.recipientId;
+      const recipientId = req.user.id;
       const updatedData = UpdateRecipientDTOSchema.parse(req.body);
       const updatedRecipient = await RecipientService.updateRecipient(
         recipientId,
