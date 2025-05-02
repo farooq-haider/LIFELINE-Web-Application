@@ -12,7 +12,13 @@ body {
   padding: 0;
 }
 
-/* Hero Section */
+
+html, body {
+    overflow-x: hidden;
+  }
+  
+
+/* HERO SECTION */
 .about-hero {
   background: linear-gradient(135deg, #1e255e, #464f9c);
   padding: 60px 30px;
@@ -84,7 +90,7 @@ body {
   transform: scale(1.1);
 }
 
-/* Section Title */
+/* SECTION TITLE */
 .info-heading {
   text-align: center;
   font-size: 2.2rem;
@@ -95,20 +101,20 @@ body {
   color: #1e255e;
 }
 
+/* EXTRAS SECTION */
 /* Extras Section */
 .extras {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  padding: 0px 20px;
-}
-
-.extra-card {
-  flex: 1 1 300px;
-  max-width: 400px;
-}
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 0px 20px;
+  }
+  
+  .extra-card {
+    flex: 1 1 300px;
+    max-width: 400px;
+  }
 
 .extra-card {
   width: 100%;
@@ -129,8 +135,8 @@ body {
 }
 
 .transparent-icon {
-  width: 60px;
-  height: 60px;
+    width: 150px;
+    height: 150px;
   margin: 0 auto 20px;
   display: block;
   opacity: 0.9;
@@ -138,38 +144,33 @@ body {
 }
 
 .main-heading {
-  font-size: 28px;
+  font-size: 40px;
   font-weight: 900;
   color: #ffffff;
   margin-bottom: 10px;
 }
 
 .sub-heading {
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 700;
   color: #f5f5f5;
   margin-bottom: 15px;
 }
 
 .extra-card p {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 500;
   line-height: 1.9;
   color: #fdfdfd;
 }
 
-.extra-card a {
-  color: #fefefe;
-  text-decoration: underline;
-}
-
-/* Card Background Themes */
+/* COLOR THEMES */
 .blue {
   background: linear-gradient(135deg, #3b82f6, #60a5fa);
 }
 .green {
-  background: linear-gradient(135deg, #464f9c, #0894a3);
-}
+    background: linear-gradient(135deg, #464f9c, #0894a3);
+  }
 .pink {
   background: linear-gradient(135deg, #ec4899, #f472b6);
 }
@@ -177,7 +178,7 @@ body {
   background: linear-gradient(135deg, #f59e0b, #fcd34d);
 }
 
-/* Responsive Design */
+/* RESPONSIVE STYLES */
 @media (max-width: 768px) {
   .about-hero {
     flex-direction: column;
@@ -223,7 +224,7 @@ body {
   }
 
   .transparent-icon {
-    width: 48px;
-    height: 48px;
+    width: 150px;
+    height: 150px;
   }
 }

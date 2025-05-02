@@ -108,7 +108,8 @@ html, body {
   max-width: 1100px;
   margin: 40px auto;
   padding: 40px;
-  background: linear-gradient(135deg, #eb4c4c, #f08080);
+  background: linear-gradient(135deg, #8a0303, #973838);
+  box-shadow: 0 13px 20px rgba(0, 0, 0, 0.8);
   border-radius: 30px;
   color: white;
 }

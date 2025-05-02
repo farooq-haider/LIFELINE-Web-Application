@@ -54,7 +54,7 @@ document.querySelectorAll(".feature-card.pink").forEach(card => {
 
 // Redirects
 document.getElementById("yes-btn").addEventListener("click", () => {
-    window.location.href = "../Login/Login.html";
+    window.location.href = "../RecipientLogin/RecipientLogin.html";
 });
 
 document.getElementById("no-btn").addEventListener("click", () => {
@@ -71,7 +71,7 @@ document.getElementById("account-popup").addEventListener("click", function (e) 
 
 // Donate Blood Redirects
 document.getElementById("donate-yes-btn").addEventListener("click", () => {
-    window.location.href = "../Login/Login.html";
+    window.location.href = "../DonorLogin/DonorLogin.html";
 });
 
 document.getElementById("donate-no-btn").addEventListener("click", () => {
