@@ -48,7 +48,7 @@ export class RecipientService {
     }
 
     const userSecret = jwt.sign(
-      { recipientId: recipient.id, recipientEmail: recipient.email },
+      { id: recipient.id, email: recipient.email, userType: "RECIPIENT" },
       config.JWT_SECRET,
       { expiresIn: "1h" }
     );

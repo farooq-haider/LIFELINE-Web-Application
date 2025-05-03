@@ -13,8 +13,9 @@ Each donation must be ≥ 450 ml.
 If the donor is eligible, respond with "true". If the donor is not eligible, respond with "false". Only respond with YES or NO. Do not add any other text. If the data is not in the correct format, respond with "Invalid Data". Here is the data: `;
 
 export class TogetherAIService {
-  static async chatBot(prompt: string): Promise<string> {
+  static async chatBot(prompt: any): Promise<string> {
     try {
+      console.log(prompt);
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
@@ -23,7 +24,12 @@ export class TogetherAIService {
         },
         body: JSON.stringify({
           model: "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
-          messages: [{ role: "user", content: baseChatPrompt + prompt }],
+          messages: [
+            {
+              role: "user",
+              content: baseChatPrompt + JSON.stringify(prompt),
+            },
+          ],
         }),
       });
       const data = await response.json();

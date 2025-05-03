@@ -56,6 +56,7 @@ export default class DonorRepository {
         where: { city, bloodGroup, isActive: true },
       });
     }
+    console.log(donors);
     return donors.map(this.mapToDTO);
   }
 

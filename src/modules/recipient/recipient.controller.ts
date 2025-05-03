@@ -36,8 +36,9 @@ export default class RecipientController {
     next: NextFunction
   ) {
     try {
+      console.log(req.user);
       const recipient = await RecipientService.getRecipientById(
-        Number(req.user.id)
+        parseInt(req.user.id, 10)
       );
       res.status(200).json({ recipient });
     } catch (error) {

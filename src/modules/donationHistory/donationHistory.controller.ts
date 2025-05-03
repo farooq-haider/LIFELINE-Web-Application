@@ -25,8 +25,10 @@ export default class DonationHistoryController {
     next: NextFunction
   ) {
     try {
-      req.body.donationDate = new Date(req.body.donationDate);
-      const validatedBody = CreateDonationsHistoryDTOSchema.parse(req.body);
+      const validatedBody = CreateDonationsHistoryDTOSchema.parse({
+        donationDate: new Date(req.body.donationDate),
+        volume: parseInt(req.body.volume, 10),
+      });
       const history = {
         volume: validatedBody.volume,
         donor_id: req.user.id,

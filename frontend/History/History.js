@@ -15,7 +15,7 @@ async function addHistory() {
     // const userSecret = JSON.parse(localStorage.getItem("userSecret"));
     const userSecret = JSON.parse(sessionStorage.getItem("userSecret"));
     const history = {
-      description: `${volume} ml`,
+      volume: volume,
       donationDate: date,
     };
     const response = await fetch(`${BASE_URL}/api/donationHistory/create`, {

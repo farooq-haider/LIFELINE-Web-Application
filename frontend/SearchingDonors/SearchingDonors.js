@@ -432,8 +432,9 @@ async function SearchDonors() {
       return;
     }
     const result = await response.json();
-    const data = result.data;
+    const data = result.donors;
     const container = document.getElementById("donor-cards-container");
+    container.innerHTML = "";
     data.forEach((donor) => {
       const card = document.createElement("div");
       card.className = "donor-card";
@@ -448,7 +449,7 @@ async function SearchDonors() {
   </div>
   <div class="donor-details">
     <h3>${donor.name}</h3>
-    <p><strong>Contact:</strong> ${donor.contact}</p>
+    <p><strong>Contact:</strong> ${donor.phone}</p>
     <p><strong>Email:</strong> ${donor.email}</p>
   </div>
 `;

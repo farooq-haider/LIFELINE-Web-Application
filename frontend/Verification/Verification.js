@@ -19,7 +19,35 @@ window.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("check-eligibility-btn")
     .addEventListener("click", async () => {
-      const reponse = await fetch(
+      const donorData = await fetch(
+        "http://127.0.0.1:3000/api/donors/getDonor",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${JSON.parse(
+              sessionStorage.getItem("userSecret")
+            )}`,
+          },
+        }
+      );
+
+      const donor = await donorData.json();
+
+      if (!donorData.ok) {
+        alert("Error fetching donor data. Please try again later.");
+        return;
+      }
+
+      if (donor.donor.verified) {
+        showPopup(
+          "Already Verified",
+          "You are already a verified donor. Thank you for your contribution!"
+        );
+        return;
+      }
+
+      const response = await fetch(
         "http://127.0.0.1:3000/api/donors/get-verified",
         {
           method: "POST",
@@ -32,11 +60,11 @@ window.addEventListener("DOMContentLoaded", () => {
         }
       );
 
-      if (!reponse.ok) {
+      if (!response.ok) {
         alert("Error verifying user. Please try again later.");
       }
 
-      const data = await reponse.json();
+      const data = await response.json();
       // const isEligible = Math.random() > 0.5; // Simulate static rule
       showPopup(
         data.result
