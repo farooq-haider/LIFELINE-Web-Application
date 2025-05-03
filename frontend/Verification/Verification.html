@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LIFELINE - Verification</title>
+  <link rel="stylesheet" href="../header/header.css" />
+  <link rel="stylesheet" href="Verification.css" />
+  <link rel="stylesheet" href="../footer/footer.css" />
+</head>
+<body>
+
+  <div id="header-container"></div>
+
+  <section class="hero about-hero">
+    <div class="hero-left">
+      <h1 class="about-title">CRITERIA</h1>
+      
+      <div class="hero-icons">
+        <div><img src="../assets/logo.png" alt="Icon" />Must have 0 complains filed against you by LIFELINE users</div>
+        <div><img src="../assets/logo.png" alt="Icon" />Must have atleast 3 entries in donation history</div>
+        <div><img src="../assets/logo.png" alt="Icon" />Must have a working email (Already Verifierd During Sign-Up)</div>
+      </div>
+
+      <p class="about-subtext">Now when you maintain your donation history, LIFELINE expects you to be truthful about them. You can roughly estimate the dates for your previous donations. LIFELINE holds the right to reverse your verification status at any time.<br><br> Click the button to check your eligibility.</p>
+
+      <button class="submit-btn" id="check-eligibility-btn">Check Eligibility</button>
+    </div>
+
+    <div class="hero-image">
+      <img src="../assets/verified.png" alt="Verification Image">
+    </div>
+  </section>
+
+  <!-- Popup -->
+  <div id="verification-popup" class="custom-popup hidden">
+    <div class="popup-content">
+      <h2 id="popup-title">Title</h2>
+      <p id="popup-message">Message here...</p>
+      <div class="popup-buttons">
+        <button onclick="closePopup()">Okay</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-container"></div>
+
+  <script src="Verification.js"></script>
+</body>
+</html>
