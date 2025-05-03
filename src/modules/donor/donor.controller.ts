@@ -113,4 +113,13 @@ export default class DonorController {
       res.status(400);
     }
   }
+
+  static async getVerified(req: Request, res: Response, next: NextFunction) {
+    try {
+      const result = await DonorService.getVerified(req.user.id);
+      res.status(200).json({ result });
+    } catch (error) {
+      next(error);
+    }
+  }
 }

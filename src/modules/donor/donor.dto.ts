@@ -36,7 +36,8 @@ export const UpdateDonorDTOSchema = z.object({
   phone: z.string().optional(),
   address: z.string().optional(),
   city: z.string().optional(),
-  isActive: z.boolean().default(true).optional(),
+  isActive: z.boolean().optional(),
+  verified: z.boolean().optional(),
 });
 
 export const DonorResetPasswordDTOSchema = z.object({
@@ -54,6 +55,7 @@ export const DonorResponseDTOSchema = z.object({
   address: z.string(),
   city: z.string(),
   isActive: z.boolean(),
+  verified: z.boolean(),
   createdAt: z.date(),
   updatedAt: z.date(),
 });

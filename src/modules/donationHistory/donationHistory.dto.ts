@@ -1,13 +1,13 @@
 import { z } from "zod";
 
 export const CreateDonationsHistoryDTOSchema = z.object({
-  description: z.string(),
+  volume: z.number(),
   donationDate: z.date(),
 });
 
 export const DonationsHistoryResponseDTOSchema = z.object({
   donor_id: z.number().int().positive(),
-  description: z.string(),
+  volume: z.number(),
   donationDate: z.date(),
 });
 

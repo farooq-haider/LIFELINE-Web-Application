@@ -10,7 +10,7 @@ const baseEligibilityPrompt = `You are a helpful assistant on my blood donation 
 At least 90 days gap between each donation.
 
 Each donation must be ≥ 450 ml. 
-If the donor is eligible, respond with "YES". If the donor is not eligible, respond with "NO". Only respond with YES or NO. Do not add any other text. If the data is not in the correct format, respond with "Invalid Data". Here is the data: `;
+If the donor is eligible, respond with "true". If the donor is not eligible, respond with "false". Only respond with YES or NO. Do not add any other text. If the data is not in the correct format, respond with "Invalid Data". Here is the data: `;
 
 export class TogetherAIService {
   static async chatBot(prompt: string): Promise<string> {
@@ -53,6 +53,7 @@ export class TogetherAIService {
         }),
       });
       const data = await response.json();
+
       return data.choices[0].message.content;
     } catch (error) {
       console.error("Error:", error);

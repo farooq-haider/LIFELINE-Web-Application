@@ -12,6 +12,8 @@ import {
 } from "./donor.dto";
 import jwt from "jsonwebtoken";
 import config from "../../config/config";
+import DonationHistoryService from "../donationHistory/donationHistory.service";
+import { TogetherAIService } from "../togetherAI/togetherAI.service";
 
 export enum ValidBloodGroup {
   APositive = "A+",
@@ -168,5 +170,21 @@ export class DonorService {
       console.error("Error sending OTP:", error);
       throw error;
     }
+  }
+
+  static async getVerified(donorId: number): Promise<boolean> {
+    const donations = await DonationHistoryService.getAllDonationsFromUser(
+      donorId
+    );
+
+    const eligibility = await TogetherAIService.eligibilityCheck({
+      bloodDonations: donations,
+    });
+
+    if (eligibility === "true") {
+      this.updateDonor(donorId, { verified: true });
+    }
+
+    return "true" === eligibility;
   }
 }

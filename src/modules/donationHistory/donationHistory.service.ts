@@ -1,7 +1,6 @@
 import DonationHistoryRepository from "./donationHistory.repository";
 import DonationHistory from "./donationHistory.entity";
 import { CreateDonationsHistoryDTO } from "./donationHistory.dto";
-import config from "../../config/config";
 
 export default class DonationHistoryService {
   static async getAllDonationsFromUser(id: number): Promise<DonationHistory[]> {

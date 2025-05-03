@@ -24,6 +24,7 @@ export default class DonorRepository {
       address: donor.address,
       city: donor.city,
       isActive: donor.isActive,
+      verified: donor.verified,
       createdAt: donor.createdAt,
       updatedAt: donor.updatedAt,
     });

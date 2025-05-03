@@ -15,7 +15,7 @@ export default class DonationHistoryRepository {
     return DonationsHistoryResponseDTOSchema.parse({
       id: history.id,
       donor_id: history.donor_id,
-      description: history.description,
+      volume: history.volume,
       donationDate: history.donationDate,
     });
   }

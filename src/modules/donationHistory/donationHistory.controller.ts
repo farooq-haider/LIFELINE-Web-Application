@@ -28,7 +28,7 @@ export default class DonationHistoryController {
       req.body.donationDate = new Date(req.body.donationDate);
       const validatedBody = CreateDonationsHistoryDTOSchema.parse(req.body);
       const history = {
-        description: validatedBody.description,
+        volume: validatedBody.volume,
         donor_id: req.user.id,
         donationDate: validatedBody.donationDate,
       };

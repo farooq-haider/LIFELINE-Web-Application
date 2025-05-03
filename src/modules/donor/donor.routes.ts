@@ -16,4 +16,6 @@ router.put("/update", donorAuthMiddleware, DonorController.updateDonor);
 
 router.post("/otp", DonorController.sendOtpEmail);
 
+router.post("/get-verified", donorAuthMiddleware, DonorController.getVerified);
+
 export default router;
