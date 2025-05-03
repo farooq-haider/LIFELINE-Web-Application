@@ -202,12 +202,11 @@ signUpForm.addEventListener("submit", async function (e) {
       alert("Password must be between 8 and 15 characters long.");
       return;
     }
-    if (password != confirmPassword) {
-      alert(
-        "Passwird miss match. Make sure the password and confirm password fields have the same password."
-      );
+    if (password !== confirmPassword) {
+      document.getElementById("password-popup").classList.remove("hidden");
       return;
     }
+    
 
     const name = document.getElementById("username").value;
     const email = document.getElementById("email").value;
@@ -269,3 +268,8 @@ signUpForm.addEventListener("submit", async function (e) {
     alert(`Oops, Something went wrong. Try again later.`);
   }
 });
+
+
+function closePasswordPopup() {
+  document.getElementById("password-popup").classList.add("hidden");
+}

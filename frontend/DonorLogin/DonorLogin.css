@@ -155,3 +155,69 @@ html, body {
   color: white;
   text-decoration: none;
 }
+.custom-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-content {
+  backdrop-filter: blur(12px);
+  background: rgba(235, 60, 60, 0.1); /* translucent red */
+  border-radius: 20px;
+  padding: 40px 30px;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.75);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.popup-image {
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+.popup-content input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 15px;
+  margin: 15px 0;
+  outline: none;
+}
+
+.popup-content input::placeholder {
+  color: #ddd;
+}
+
+.popup-btn {
+  padding: 12px 24px;
+  border: none;
+  background-color: #ef4444;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.popup-btn:hover {
+  background-color: #dc2626;
+}
+
+.hidden {
+  display: none;
+}

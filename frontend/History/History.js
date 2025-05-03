@@ -3,19 +3,19 @@ function showForm() {
 }
 
 async function addHistory() {
-  let date, desc;
+  let date, volume;
   try {
     date = document.getElementById("historyDate").value;
-    desc = document.getElementById("historyDesc").value;
+    volume = document.getElementById("historyVolume").value;
 
-    if (!date || !desc) {
+    if (!date || !volume) {
       alert("Both fields are required!");
       return;
     }
     // const userSecret = JSON.parse(localStorage.getItem("userSecret"));
     const userSecret = JSON.parse(sessionStorage.getItem("userSecret"));
     const history = {
-      description: desc,
+      description: `${volume} ml`,
       donationDate: date,
     };
     const response = await fetch(`${BASE_URL}/api/donationHistory/create`, {
@@ -46,14 +46,14 @@ async function addHistory() {
         month: "long",
         year: "numeric",
       })}</div>
-      <div class="ticket-desc">${desc}</div>
+      <div class="ticket-desc">${volume} ml</div>
     `;
 
   document.getElementById("ticketsContainer").appendChild(ticket);
 
   // Reset fields
   document.getElementById("historyDate").value = "";
-  document.getElementById("historyDesc").value = "";
+  document.getElementById("historyVolume").value = "";
   document.getElementById("historyForm").style.display = "none";
 }
 
