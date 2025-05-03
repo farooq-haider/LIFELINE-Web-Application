@@ -36,3 +36,22 @@ loginForm.addEventListener("submit", async function (e) {
     alert("Oops, Something went wrong. Try Again Later.");
   }
 });
+
+
+document.querySelector(".forgot-password a").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.getElementById("forgot-password-popup").classList.remove("hidden");
+});
+
+function handleResetPassword() {
+  const email = document.getElementById("reset-email").value;
+  if (!email) {
+    alert("Please enter your email.");
+    return;
+  }
+
+  // Trigger password reset logic
+  console.log("Sending OTP to:", email); // placeholder
+  document.getElementById("forgot-password-popup").classList.add("hidden");
+  document.getElementById("otp-popup").classList.remove("hidden");
+}

@@ -55,6 +55,17 @@
       <p class="signup-prompt">New to Lifeline? <a href="#">Sign Up</a> Here</p>
     </main>
 
+        <!-- Forgot Password - Email Input Popup -->
+<div id="forgot-password-popup" class="custom-popup hidden">
+  <div class="popup-content">
+    <img src="../assets/reset-password.png" alt="Forgot Email" class="popup-image" />
+    <h2>Reset Password</h2>
+    <p>Enter your registered email address to receive a verification code.</p>
+    <input type="email" id="reset-email" placeholder="Your Email" class="popup-input" />
+    <button class="popup-btn" onclick="handleResetPassword()">Submit</button>
+  </div>
+</div>
+
     <div id="footer-container"></div>
     <script src="../assets/config.js"></script>
     <script src="RecipientLogin.js"></script>
