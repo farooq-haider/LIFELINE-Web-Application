@@ -9,6 +9,11 @@ export const CreateRecipientDTOSchema = z.object({
   city: z.string(),
 });
 
+export const RecipientResetPasswordDTOSchema = z.object({
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(8, "Password must be at least 8 characters long"),
+});
+
 export const LoginRecipientDTOSchema = z.object({
   email: z
     .string()
@@ -44,3 +49,6 @@ export type CreateRecipientDTO = z.infer<typeof CreateRecipientDTOSchema>;
 export type RecipientResponseDTO = z.infer<typeof RecipientResponseDTOSchema>;
 export type LoginRecipientDTO = z.infer<typeof LoginRecipientDTOSchema>;
 export type UpdateRecipientDTO = z.infer<typeof UpdateRecipientDTOSchema>;
+export type RecipientResetPasswordDTO = z.infer<
+  typeof RecipientResetPasswordDTOSchema
+>;

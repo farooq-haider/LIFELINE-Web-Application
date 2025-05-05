@@ -38,6 +38,8 @@ export default class DonorController {
       await DonorService.resetPassword(validatedBody);
       res.status(200).json({ message: "Password reset successfully" });
     } catch (error) {
+      console.log(error);
+      res.status(400).json({ message: error });
       next(error);
     }
   }
@@ -107,6 +109,18 @@ export default class DonorController {
       const otp = await DonorService.sendOtpEmail(req.body.email);
       res.status(200).json({
         otp,
+      });
+    } catch (e) {
+      console.log(e);
+      res.status(400);
+    }
+  }
+
+  static async sendResetEmail(req: Request, res: Response, next: NextFunction) {
+    try {
+      const otp = await DonorService.sendResetEmail(req.body.email);
+      res.status(200).json({
+        status: true,
       });
     } catch (e) {
       console.log(e);

@@ -36,17 +36,32 @@ loginForm.addEventListener("submit", async function (e) {
   }
 });
 
-
 document.querySelector(".forgot-password a").addEventListener("click", (e) => {
   e.preventDefault();
   document.getElementById("forgot-password-popup").classList.remove("hidden");
 });
 
-function handleResetPassword() {
+async function handleResetPassword() {
   const email = document.getElementById("reset-email").value;
   if (!email) {
     alert("Please enter your email.");
     return;
+  }
+
+  const response = await fetch(`${BASE_URL}/api/donors/reset-email`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email }),
+  });
+
+  if (response.ok) {
+    localStorage.setItem("resetEmail", JSON.stringify(email));
+    alert("A reset link has been sent to your email. Please check your inbox.");
+    window.location.href = "../landingPage/landingPage.html";
+  } else {
+    alert("Failed to send reset link. Please try again.");
   }
 
   // Trigger password reset logic
@@ -55,40 +70,35 @@ function handleResetPassword() {
   document.getElementById("otp-popup").classList.remove("hidden");
 }
 
-
-
-
 function loadComponent(selector, filePath) {
   fetch(filePath)
-      .then(response => response.text())
-      .then(data => {
-          document.querySelector(selector).innerHTML = data;
-      })
-      .catch(err => console.error(`Failed to load ${filePath}:`, err));
+    .then((response) => response.text())
+    .then((data) => {
+      document.querySelector(selector).innerHTML = data;
+    })
+    .catch((err) => console.error(`Failed to load ${filePath}:`, err));
 }
 
 function loadComponent(selector, filePath, callback) {
   fetch(filePath)
-      .then(response => response.text())
-      .then(data => {
-          document.querySelector(selector).innerHTML = data;
-          if (callback) callback(); // Run optional callback after loading
-      })
-      .catch(err => console.error(`Failed to load ${filePath}:`, err));
+    .then((response) => response.text())
+    .then((data) => {
+      document.querySelector(selector).innerHTML = data;
+      if (callback) callback(); // Run optional callback after loading
+    })
+    .catch((err) => console.error(`Failed to load ${filePath}:`, err));
 }
 
 function loadScript(path) {
-  const script = document.createElement('script');
+  const script = document.createElement("script");
   script.src = path;
   document.body.appendChild(script);
 }
 
 window.addEventListener("DOMContentLoaded", () => {
   loadComponent("#header-container", "../header/header.html", () => {
-      loadScript("../header/header.js"); // ✅ Load header.js after header.html is inserted
+    loadScript("../header/header.js"); // ✅ Load header.js after header.html is inserted
   });
 
   loadComponent("#footer-container", "../footer/footer.html");
 });
-
-

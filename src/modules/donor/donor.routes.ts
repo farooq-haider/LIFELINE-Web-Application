@@ -15,6 +15,7 @@ router.post("/getDonor", donorAuthMiddleware, DonorController.getDonorById);
 router.put("/update", donorAuthMiddleware, DonorController.updateDonor);
 
 router.post("/otp", DonorController.sendOtpEmail);
+router.post("/reset-email", DonorController.sendResetEmail);
 
 router.post("/get-verified", donorAuthMiddleware, DonorController.getVerified);
 

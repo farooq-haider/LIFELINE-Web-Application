@@ -3,6 +3,7 @@ import { RecipientService } from "./recipient.service";
 import {
   CreateRecipientDTOSchema,
   LoginRecipientDTOSchema,
+  RecipientResetPasswordDTOSchema,
   UpdateRecipientDTOSchema,
 } from "./recipient.dto";
 export default class RecipientController {
@@ -47,6 +48,7 @@ export default class RecipientController {
       next(error);
     }
   }
+
   static async deleteAccount(req: Request, res: Response, next: NextFunction) {
     try {
       const recipientId = req.user.id;
@@ -73,6 +75,34 @@ export default class RecipientController {
     } catch (error) {
       console.log(error);
       next(error);
+    }
+  }
+
+  static async resetRecipientPassword(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) {
+    try {
+      const validatedBody = RecipientResetPasswordDTOSchema.parse(req.body);
+      await RecipientService.resetPassword(validatedBody);
+      res.status(200).json({ message: "Password reset successfully" });
+    } catch (error) {
+      console.log(error);
+      res.status(400).json({ message: error });
+      next(error);
+    }
+  }
+
+  static async sendResetEmail(req: Request, res: Response, next: NextFunction) {
+    try {
+      const otp = await RecipientService.sendResetEmail(req.body.email);
+      res.status(200).json({
+        status: true,
+      });
+    } catch (e) {
+      console.log(e);
+      res.status(400);
     }
   }
 }

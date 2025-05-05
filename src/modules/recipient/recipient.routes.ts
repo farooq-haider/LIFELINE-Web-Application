@@ -16,5 +16,7 @@ router.post(
 router.delete("/delete", userAuthmiddleware, RecipientController.deleteAccount);
 
 router.put("/update", userAuthmiddleware, RecipientController.updateRecipient);
+router.post("/reset-email", RecipientController.sendResetEmail);
+router.put("/reset-password", RecipientController.resetRecipientPassword);
 
 export default router;

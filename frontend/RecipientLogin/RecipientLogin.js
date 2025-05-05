@@ -37,17 +37,34 @@ loginForm.addEventListener("submit", async function (e) {
   }
 });
 
-
 document.querySelector(".forgot-password a").addEventListener("click", (e) => {
   e.preventDefault();
   document.getElementById("forgot-password-popup").classList.remove("hidden");
 });
 
-function handleResetPassword() {
+async function handleResetPassword() {
   const email = document.getElementById("reset-email").value;
   if (!email) {
     alert("Please enter your email.");
     return;
+  }
+  const response = await fetch(
+    `http://127.0.0.1:3000/api/recipients/reset-email`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    }
+  );
+
+  if (response.ok) {
+    localStorage.setItem("resetEmail", JSON.stringify(email));
+    alert("A reset link has been sent to your email. Please check your inbox.");
+    window.location.href = "../landingPage/landingPage.html";
+  } else {
+    alert("Failed to send reset link. Please try again.");
   }
 
   // Trigger password reset logic
