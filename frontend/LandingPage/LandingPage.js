@@ -1,8 +1,5 @@
 
-// JS placeholder: Add interactivity as needed later
-document.querySelector(".info-btn").addEventListener("click", function() {
-    alert("Lifeline is a platform that connects blood donors with recipients efficiently.");
-});
+
 
 function loadComponent(selector, filePath) {
     fetch(filePath)
@@ -102,4 +99,22 @@ const observer = new IntersectionObserver((entries, observer) => {
 
 extraCards.forEach(card => {
     observer.observe(card);
+});
+
+
+document.querySelectorAll(".feature-card.pink").forEach(card => {
+    const heading = card.querySelector("h3").textContent.trim();
+
+    card.addEventListener("click", () => {
+        if (heading === "Our Moto") {
+            window.location.href = "../AboutUs/AboutUs.html"; 
+        } else if (heading === "Help Improve the Platform") {
+            window.location.href = "../Feedback/Feedback.html";
+        }
+    });
+});
+
+
+document.querySelector(".info-btn").addEventListener("click", function() {
+    window.location.href = "../AboutUs/AboutUs.html"; // Redirect to the About Us page
 });
