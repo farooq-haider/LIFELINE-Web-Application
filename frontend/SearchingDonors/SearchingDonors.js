@@ -454,6 +454,15 @@ async function SearchDonors() {
   </div>
 `;
 
+const notifySection = document.getElementById("notify-section");
+
+if (data.length > 0) {
+  notifySection.classList.remove("hidden");
+} else {
+  notifySection.classList.add("hidden");
+}
+
+
       container.appendChild(card);
     });
   } catch (error) {
