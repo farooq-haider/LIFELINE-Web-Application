@@ -1,3 +1,5 @@
+let selectedEmails = [];
+
 document.addEventListener("DOMContentLoaded", () => {
   // Load footer
   fetch("../footer/footer.html")
@@ -201,215 +203,40 @@ document.addEventListener("DOMContentLoaded", () => {
       card.classList.remove("selected");
     });
   });
+
+  const notifyButton = document.getElementById("notify-email-btn");
+
+  if (notifyButton) {
+    notifyButton.addEventListener("click", async () => {
+      const urgency = document.getElementById("urgency").value;
+      try {
+        // Send the API call
+        const response = await fetch(`${BASE_URL}/api/donors/urg-notify`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${JSON.parse(
+              sessionStorage.getItem("userSecret")
+            )}`,
+          },
+          credentials: "include",
+          body: JSON.stringify({ emails: selectedEmails, urgency }),
+        });
+
+        if (!response.ok) {
+          alert("Failed to send notification request.");
+          return;
+        }
+
+        const result = await response.json();
+        alert("Notification request sent successfully!");
+      } catch (error) {
+        console.error("Error sending notification request:", error);
+        alert("An error occurred while sending the notification request.");
+      }
+    });
+  }
 });
-
-// const dummyDonors = [
-//   {
-//     name: "Farooq Haider",
-//     contact: "+92 3344232311",
-//     city: "Gujranwala",
-//     blood_group: "A+",
-//     verified: true,
-//   },
-//   {
-//     name: "Ali Khan",
-//     contact: "+92 3739992778",
-//     city: "Lahore",
-//     blood_group: "A+",
-//     verified: false,
-//   },
-//   {
-//     name: "Sara Ahmed",
-//     contact: "+92 3082149175",
-//     city: "Peshawar",
-//     blood_group: "B+",
-//     verified: false,
-//   },
-//   {
-//     name: "Usman Tariq",
-//     contact: "+92 3421750300",
-//     city: "Quetta",
-//     blood_group: "A+",
-//     verified: true,
-//   },
-//   {
-//     name: "Zara Nadeem",
-//     contact: "+92 3854461057",
-//     city: "Islamabad",
-//     blood_group: "AB-",
-//     verified: false,
-//   },
-//   {
-//     name: "Hassan Raza",
-//     contact: "+92 3178452303",
-//     city: "Quetta",
-//     blood_group: "O+",
-//     verified: false,
-//   },
-//   {
-//     name: "Ayesha Ali",
-//     contact: "+92 3534792980",
-//     city: "Karachi",
-//     blood_group: "AB+",
-//     verified: false,
-//   },
-//   {
-//     name: "Bilal Javed",
-//     contact: "+92 3017997633",
-//     city: "Lahore",
-//     blood_group: "B-",
-//     verified: true,
-//   },
-//   {
-//     name: "Fatima Noor",
-//     contact: "+92 3423436494",
-//     city: "Rawalpindi",
-//     blood_group: "A-",
-//     verified: true,
-//   },
-//   {
-//     name: "Tariq Mehmood",
-//     contact: "+92 3992679320",
-//     city: "Quetta",
-//     blood_group: "A-",
-//     verified: false,
-//   },
-//   {
-//     name: "Rabia Shah",
-//     contact: "+92 3778319914",
-//     city: "Karachi",
-//     blood_group: "B-",
-//     verified: true,
-//   },
-//   {
-//     name: "Amna Khalid",
-//     contact: "+92 3147795806",
-//     city: "Peshawar",
-//     blood_group: "O+",
-//     verified: true,
-//   },
-//   {
-//     name: "Noman Aslam",
-//     contact: "+92 3429348671",
-//     city: "Faisalabad",
-//     blood_group: "A+",
-//     verified: true,
-//   },
-//   {
-//     name: "Sidra Yousaf",
-//     contact: "+92 3952826326",
-//     city: "Sialkot",
-//     blood_group: "AB-",
-//     verified: false,
-//   },
-//   {
-//     name: "Hamza Iqbal",
-//     contact: "+92 3782344223",
-//     city: "Faisalabad",
-//     blood_group: "A+",
-//     verified: false,
-//   },
-//   {
-//     name: "Komal Zafar",
-//     contact: "+92 3753128307",
-//     city: "Quetta",
-//     blood_group: "B-",
-//     verified: false,
-//   },
-//   {
-//     name: "Waleed Nasir",
-//     contact: "+92 3374337699",
-//     city: "Quetta",
-//     blood_group: "A+",
-//     verified: true,
-//   },
-//   {
-//     name: "Mariam Saeed",
-//     contact: "+92 3386956092",
-//     city: "Multan",
-//     blood_group: "O-",
-//     verified: false,
-//   },
-//   {
-//     name: "Kashif Khan",
-//     contact: "+92 3722102613",
-//     city: "Quetta",
-//     blood_group: "A-",
-//     verified: true,
-//   },
-//   {
-//     name: "Hiba Ali",
-//     contact: "+92 3915936730",
-//     city: "Quetta",
-//     blood_group: "A-",
-//     verified: true,
-//   },
-// ];
-
-//let currentIndex = 0;
-//const cardsPerBatch = 5;
-// const container = document.getElementById("donor-cards-container");
-// const loader = document.getElementById("loading-indicator");
-
-// function renderCards(start, count) {
-//   const fragment = document.createDocumentFragment();
-//   const batch = dummyDonors.slice(start, start + count);
-
-//   batch.forEach((donor) => {
-//     const card = document.createElement("div");
-//     card.className = "donor-card";
-//     card.innerHTML = `
-//   <div class="avatar-wrapper">
-//     <img class="donor-image" src="../assets/avatar.png" alt="${donor.name}" />
-//     ${
-//       donor.verified
-//         ? '<img class="verified-icon" src="../assets/verified.png" alt="Verified">'
-//         : ""
-//     }
-//   </div>
-//   <div class="donor-details">
-//     <h3>${donor.name}</h3>
-//     <p><strong>Contact:</strong> ${donor.contact}</p>
-//     <p><strong>City:</strong> ${donor.city}</p>
-//     <p><strong>Blood Group:</strong> ${donor.blood_group}</p>
-//   </div>
-// `;
-
-//     fragment.appendChild(card);
-//   });
-
-//   container.appendChild(fragment);
-//   currentIndex += count;
-// }
-
-// function showLoaderAndLoad() {
-//   loader.classList.remove("hidden");
-//   setTimeout(() => {
-//     renderCards(currentIndex, cardsPerBatch);
-//     loader.classList.add("hidden");
-//   }, 800); // simulate loading
-// }
-
-// // Scroll detection
-// window.addEventListener("scroll", () => {
-//   const cards = document.querySelectorAll(".donor-card");
-//   const lastCard = cards[cards.length - 3];
-//   if (!lastCard) return;
-
-//   const lastCardOffset = lastCard.getBoundingClientRect().top;
-//   const viewportHeight = window.innerHeight;
-
-//   if (lastCardOffset < viewportHeight && currentIndex < dummyDonors.length) {
-//     showLoaderAndLoad();
-//   }
-// });
-
-// // On Apply click → reset and load first batch
-// document.querySelector(".apply-btn").addEventListener("click", () => {
-//   container.innerHTML = "";
-//   currentIndex = 0;
-//   renderCards(currentIndex, cardsPerBatch);
-// });
 
 async function SearchDonors() {
   try {
@@ -433,6 +260,9 @@ async function SearchDonors() {
     }
     const result = await response.json();
     const data = result.donors;
+
+    selectedEmails = data.map((donor) => donor.email);
+
     const container = document.getElementById("donor-cards-container");
     container.innerHTML = "";
     data.forEach((donor) => {
@@ -454,14 +284,13 @@ async function SearchDonors() {
   </div>
 `;
 
-const notifySection = document.getElementById("notify-section");
+      const notifySection = document.getElementById("notify-section");
 
-if (data.length > 0) {
-  notifySection.classList.remove("hidden");
-} else {
-  notifySection.classList.add("hidden");
-}
-
+      if (data.length > 0) {
+        notifySection.classList.remove("hidden");
+      } else {
+        notifySection.classList.add("hidden");
+      }
 
       container.appendChild(card);
     });

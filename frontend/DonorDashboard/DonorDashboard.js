@@ -89,6 +89,20 @@ document.addEventListener("DOMContentLoaded", async (e) => {
     contact.textContent = donor.phone;
     city.textContent = donor.city;
     blood.textContent = donor.bloodGroup;
+
+    if (donor.lastDonation) {
+      const lastDonationDate = new Date(donor.lastDonation);
+      const currentDate = new Date();
+      const eightWeeksInMilliseconds = 8 * 7 * 24 * 60 * 60 * 1000;
+
+      if (currentDate - lastDonationDate > eightWeeksInMilliseconds) {
+        // alert("Your last donation was over 8 weeks ago. You are eligible to donate again.");
+      } else {
+        alert(
+          "Your last donation was within the last 8 weeks. You are advised to wait before donating again."
+        );
+      }
+    }
   } catch (err) {
     alert("Oops. Something went wrong. Try again later.");
     console.log(err);

@@ -18,5 +18,10 @@ router.post("/otp", DonorController.sendOtpEmail);
 router.post("/reset-email", DonorController.sendResetEmail);
 
 router.post("/get-verified", donorAuthMiddleware, DonorController.getVerified);
+router.post(
+  "/urg-notify",
+  donorAuthMiddleware,
+  DonorController.sendUrgencyEmails
+);
 
 export default router;

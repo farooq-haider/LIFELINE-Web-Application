@@ -37,7 +37,32 @@ export class DonorService {
     if (!donor) {
       throw new Error("Donor not found");
     }
-    return donor;
+
+    const donations = await DonationHistoryService.getAllDonationsFromUser(id);
+
+    // Find the latest donation date using Math.max
+    const latestDonationTime = donations.length
+      ? Math.max(
+          ...donations.map((donation) =>
+            new Date(donation.donationDate).getTime()
+          )
+        )
+      : null;
+
+    // Update the donor's last donation time if donations exist
+    if (latestDonationTime) {
+      await DonorRepository.update(id, {
+        lastDonation: new Date(latestDonationTime).toISOString(),
+      });
+    }
+
+    // Fetch the updated donor details
+    const updatedDonor = await DonorRepository.findById(id);
+    if (!updatedDonor) {
+      throw new Error("Donor not found");
+    }
+
+    return updatedDonor;
   }
 
   static async getDonorByEmail(email: string): Promise<Donor> {
@@ -241,5 +266,77 @@ export class DonorService {
     }
 
     return "true" === eligibility;
+  }
+
+  static async sendUrgencyEmail(
+    email: string,
+    recEmail: string,
+    urgency: string
+  ) {
+    const transporter = nodemailer.createTransport({
+      service: "Gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: `LIFELINE Support <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: "Urgent Blood Donation Request",
+      html: `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 30px; border: 1px solid #e5e7eb; border-radius: 12px; background-color: #f9fafb;">
+      <h2 style="color: #dc2626; text-align: center;">Urgent Blood Donation Needed ${urgency}</h2>
+      <p style="font-size: 16px; color: #111827;">
+        Dear Donor,
+      </p>
+      <p style="font-size: 16px; color: #111827;">
+        We have an urgent request for blood donation <strong>${urgency}</strong>. Your blood group is critically needed to help save a life.
+      </p>
+      <p style="font-size: 16px; color: #111827;">
+        The person in need has the following email:
+      </p>
+      <ul style="font-size: 16px; color: #111827; list-style: none; padding: 0;">
+        <li><strong>Email:</strong> ${recEmail}</li>
+      </ul>
+      <p style="font-size: 16px; color: #111827;">
+        If you are available to donate blood, please contact us immediately.
+      </p>
+      <div style="text-align: center; margin: 30px 0;">
+        <a href="http://127.0.0.1:5500/frontend/ContactUs/ContactUs.html" style="background-color: #dc2626; color: #fff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-size: 16px;">
+          Contact Us Now
+        </a>
+      </div>
+      <p style="font-size: 14px; color: #6b7280;">
+        Thank you for your generosity and willingness to help those in need.
+      </p>
+      <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
+      <p style="font-size: 12px; color: #9ca3af; text-align: center;">
+        © ${new Date().getFullYear()} LIFELINE. All rights reserved.
+      </p>
+    </div>
+  `,
+    };
+
+    try {
+      await transporter.sendMail(mailOptions);
+      return true;
+    } catch (error) {
+      console.error("Error sending urgency email:", error);
+      throw error;
+    }
+  }
+
+  static async sendUrgencyEmails(
+    emails: string[],
+    urgency: string,
+    recEmail: string
+  ): Promise<boolean> {
+    for (const email of emails) {
+      await this.sendUrgencyEmail(email, recEmail, urgency);
+    }
+
+    return true;
   }
 }

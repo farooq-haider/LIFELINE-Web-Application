@@ -136,4 +136,22 @@ export default class DonorController {
       next(error);
     }
   }
+
+  static async sendUrgencyEmails(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) {
+    try {
+      const { emails, urgency } = req.body;
+      const result = await DonorService.sendUrgencyEmails(
+        emails,
+        urgency,
+        req.user.email
+      );
+      res.status(200).json({ result });
+    } catch (error) {
+      next(error);
+    }
+  }
 }
