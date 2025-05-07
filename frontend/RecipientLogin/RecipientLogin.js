@@ -39,8 +39,23 @@ loginForm.addEventListener("submit", async function (e) {
 
 document.querySelector(".forgot-password a").addEventListener("click", (e) => {
   e.preventDefault();
-  document.getElementById("forgot-password-popup").classList.remove("hidden");
+  const popup = document.getElementById("forgot-password-popup");
+
+  // Delay adding the outside-click listener to avoid immediate closure
+  setTimeout(() => {
+    function handleOutsideClick(event) {
+      if (!popup.querySelector(".popup-content").contains(event.target)) {
+        popup.classList.add("hidden");
+        document.removeEventListener("click", handleOutsideClick);
+      }
+    }
+
+    document.addEventListener("click", handleOutsideClick);
+  }, 10);
+
+  popup.classList.remove("hidden");
 });
+
 
 async function handleResetPassword() {
   const email = document.getElementById("reset-email").value;

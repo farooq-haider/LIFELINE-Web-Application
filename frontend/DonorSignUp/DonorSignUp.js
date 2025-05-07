@@ -273,3 +273,12 @@ signUpForm.addEventListener("submit", async function (e) {
 function closePasswordPopup() {
   document.getElementById("password-popup").classList.add("hidden");
 }
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  loadComponent("#header-container", "../header/header.html", () => {
+      loadScript("../header/header.js"); // ✅ Load header.js after header.html is inserted
+  });
+
+  loadComponent("#footer-container", "../footer/footer.html");
+});
