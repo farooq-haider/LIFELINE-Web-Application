@@ -42,7 +42,7 @@
           <option value="O-">O-</option>
         </select>
 
-        <!-- Urgency -->
+        Urgency
         <select class="filter-select" id="urgency">
           <option value="">Select Urgency</option>
           <option>Today</option>
@@ -105,6 +105,16 @@
     <div class="results-section">
       <div id="donor-cards-container"></div>
       <div id="loading-indicator" class="loading hidden">Loading...</div>
+
+      <!-- Notify Section -->
+  <div id="notify-section" class="hidden">
+    <p class="centered-warning" style="margin-top: 40px;">
+      If you want to notify the searched users of your blood requirement, then click here
+    </p>
+    <div class="filter-actions">
+      <button class="apply-btn darkblue" id="notify-email-btn">Notify Users via Email</button>
+    </div>
+  </div>
     </div>
 
     <!-- Footer -->
